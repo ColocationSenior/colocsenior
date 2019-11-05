@@ -1,0 +1,341 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "title": "Framework home",
+      "controller": "MainController",
+      "method": "show",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/monprofil",
+      "title": "Mon profil",
+      "controller": "UserController",
+      "method": "myProfil",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/update",
+      "title": "Mon profil",
+      "controller": "UserController",
+      "method": "myProfilUpdate",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil_supp/update",
+      "title": "Mon profil",
+      "controller": "UserController",
+      "method": "myProfilSuppUpdate",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil_secu/update",
+      "title": "Mon profil",
+      "controller": "UserController",
+      "method": "myProfilSecuUpdate",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/monprofil_supp",
+      "title": "Mon profil",
+      "controller": "UserController",
+      "method": "myProfilSupp",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/monprofil_secu",
+      "title": "Mon profil",
+      "controller": "UserController",
+      "method": "myProfilSecu",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/show/{idUser}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "showProfile",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/add/{idUser}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "addFriend",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/accept/{idUser}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "acceptFriend",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/friends/list",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "listFriends",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/list",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "listProfil",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/list",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "listProfil",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/organisation/show/{idOrganisation}",
+      "title": "Organisation",
+      "controller": "OrganisationController",
+      "method": "showOrganisation",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/logement/create",
+      "title": "Organisation",
+      "controller": "PublicationController",
+      "method": "showOrganisation",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/article/create",
+      "title": "Article",
+      "controller": "ContentController",
+      "method": "articleForm",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/article/post",
+      "title": "Article",
+      "controller": "ContentController",
+      "method": "postArticle",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/article/view/{idNew}",
+      "title": "Article",
+      "controller": "ContentController",
+      "method": "showArticle",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/login",
+      "title": "Login",
+      "controller": "UserController",
+      "method": "login"
+    },
+    {
+      "route": "/signup",
+      "title": "Inscription",
+      "controller": "UserController",
+      "method": "signup"
+    },
+    {
+      "route": "/disconnect",
+      "title": "Déconnexion",
+      "controller": "UserController",
+      "method": "disconnect"
+    },
+    {
+      "route": "/login/post",
+      "title": "Login",
+      "controller": "UserController",
+      "method": "loginPost",
+      "request": "POST"
+    },
+    {
+      "route": "/signup/post",
+      "title": "Signup",
+      "controller": "UserController",
+      "method": "signupPost",
+      "request": "POST"
+    },
+    {
+      "route": "/error",
+      "title": "Framework error",
+      "controller": "ErrorController",
+      "method": "show"
+    },
+    {
+      "route": "/error/{code}",
+      "title": "Framework error",
+      "controller": "ErrorController",
+      "method": "show"
+    }
+  ]
+}

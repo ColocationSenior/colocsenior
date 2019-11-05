@@ -1,0 +1,11 @@
+{"global": {
+  "database": {
+    "engine": "mysql",
+    "path": "pandorconumain.mysql.db",
+    "name": "pandorconumain",
+    "charset": "utf8",
+    "user": "pandorconumain",
+    "password": "Pandorwebsite2019"
+  }
+}
+}

@@ -1,0 +1,14 @@
+version: "2"
+services:
+  colocsenior:
+    build:
+     context: .
+     dockerfile: Dockerfile
+    container_name: colocsenior-server
+    expose:
+     - 80
+     - 443
+    ports:
+      - "8080:80"
+    volumes:
+     - ./:/var/www/html
