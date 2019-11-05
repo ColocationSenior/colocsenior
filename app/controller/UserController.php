@@ -60,6 +60,9 @@ class UserController
         return include('../app/views/profil.php');
     }
     public function myProfilUpdate(){
+        if(@strlen($_POST['birthYear']) < 1) $_POST['birthYear'] = 0;
+        if(@strlen($_POST['gender']) < 1) $_POST['gender'] = 0;
+
         $builder = new RequestBuilder();
         $builder->setTable('Users');
         $builder->addValues(array(

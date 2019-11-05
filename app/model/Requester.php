@@ -69,6 +69,7 @@ class Requester
         return $request;
     }
     private function requestEngine($request, $return = true){
+        //echo $request;
         $req = $this->bdd->prepare($request);
         $req->execute($this->bindTab);
 
@@ -110,7 +111,7 @@ class Requester
     private function writeNaturalJoin($naturalJoinTable){
         $request = "";
         foreach ($naturalJoinTable as $index => $param){
-            $request .= "NATURAL JOIN ".$param;
+            $request .= " NATURAL JOIN ".$param;
         }
         $request .= ' ';
 

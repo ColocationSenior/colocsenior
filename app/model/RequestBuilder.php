@@ -88,7 +88,7 @@ class RequestBuilder
     }
     public function findOne($config = null){
         if($config != null) return $this->find($config)[0];
-        return $this->find()[0];
+        return @$this->find()[0];
     }
     private function buildTabRequest(){
         return array(

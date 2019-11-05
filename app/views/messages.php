@@ -20,7 +20,6 @@ include('includes/header.php') ?>
                                 <!-- Chat List Item: Avatar -->
                                 <div class="d-flex g-mr-20--lg">
                                     <span class="d-inline-block g-pos-rel">
-                                        <span class="u-badge-v2--md u-badge--bottom-right g-bg-lightyellow g-mb-8 g-mr-8"></span>
                                         <img class="rounded-circle g-width-45 g-width-55--lg g-height-45 g-height-55--lg" src="../../assets/img-temp/200x200/img2.jpg" alt="Image Description">
                                     </span>
                                 </div>
@@ -29,22 +28,22 @@ include('includes/header.php') ?>
                                 <div class="media-body align-self-center g-hidden-md-down">
                                     <div class="media g-mb-10">
                                         <!-- Chat List Item: Name -->
-                                        <h3 class="d-flex align-self-center g-font-size-16 g-font-weight-400 mb-0">E<span class="g-hidden-md-down">dith&nbsp;</span><span class="g-hidden-md-up">.</span>Garza</h3>
+                                        <h3 class="d-flex align-self-center g-font-size-16 g-font-weight-400 mb-0">Benjamin FILAM</h3>
                                         <!-- End Chat List Item: Name -->
 
                                         <!-- Chat List Item: Time -->
                                         <em class="d-flex align-self-center align-items-center g-font-style-normal g-color-gray-light-v1 ml-auto">
                                             <i class="hs-admin-time icon-clock g-mr-5"></i>
-                                            <small>08:33 PM</small>
+                                            <small>14h51</small>
                                         </em>
                                         <!-- End Chat List Item: Time -->
                                     </div>
 
                                     <div class="media">
-                                        <p class="media-body mb-0">Finding the perfect learning for Flash</p>
+                                        <p class="media-body mb-0">Merci de m'avoir ajouté !</p>
 
                                         <!-- Chat List Item: Unread Messages -->
-                                        <div class="d-flex align-self-center justify-content-center g-min-width-35 g-bg-secondary g-font-size-12 g-color-white g-rounded-15 g-px-8 g-py-1 ml-auto">Non lu</div>
+                                        <!--<div class="d-flex align-self-center justify-content-center g-min-width-35 g-bg-secondary g-font-size-12 g-color-white g-rounded-15 g-px-8 g-py-1 ml-auto">Non lu</div>-->
                                         <!-- End Chat List Item: Unread Messages -->
                                     </div>
                                 </div>
@@ -62,7 +61,7 @@ include('includes/header.php') ?>
                     <header class="g-px-15 g-px-25--lg">
                         <div class="media g-height-50 g-height-80--lg">
                             <div class="media-body d-flex align-self-center justify-content-center g-font-size-16--md g-color-black">
-                                <a class="g-color-black" href="#">Alain TERRIEUR</a>
+                                <a class="g-color-black" href="#">Benjamin FILAM</a>
                             </div>
                         </div>
                     </header>
@@ -71,14 +70,14 @@ include('includes/header.php') ?>
                     <hr class="d-flex g-brd-gray-light-v7 g-mx-15 g-mx-25--lg my-0">
 
                     <!-- Chat. Message Area. Messages. -->
-                    <div class="js-custom-scroll g-height-50vh--lg g-pa-15 g-pa-25--lg">
+                    <div class="js-custom-scroll g-height-50vh--lg g-pa-15 g-pa-25--lg" id="block_chat">
                         <!-- Chat. Message Area. Message (From). -->
                         <section class="g-mb-30">
                             <div class="media g-mb-12">
                                 <!-- Chat. Message Area. Message. Body. -->
                                 <div class="media-body">
                                     <div class="d-inline-block g-width-170 g-width-auto--sm g-bg-gray-light-v8 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15">
-                                        <p class="mb-0">Attending a trade show can be a very effective method of promoting your</p>
+                                        <p class="mb-0">Bonjour, ravis de faire votre connaissance !</p>
                                     </div>
                                 </div>
                                 <!-- End Chat. Message Area. Message. Body. -->
@@ -87,7 +86,7 @@ include('includes/header.php') ?>
                             <!-- Chat. Message Area. Message Time -->
                             <em class="d-flex align-self-center align-items-center g-font-style-normal g-color-gray-light-v1 g-ml-50">
                                 <i class="hs-admin-time icon-clock g-mr-5"></i>
-                                <small>11:49 PM</small>
+                                <small>11h49</small>
                             </em>
                             <!-- End Chat. Message Area. Message Time -->
                         </section>
@@ -99,7 +98,20 @@ include('includes/header.php') ?>
                                 <!-- Chat. Message Area. Message. Body. -->
                                 <div class="media-body">
                                     <div class="d-inline-block g-width-170 g-width-auto--sm g-bg-lightblue-v6 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15">
-                                        <p class="mb-0">Conversations can be a tricky business. Sometimes, decoding what is said with what is meant is difficult</p>
+                                        <p class="mb-0">Moi de même</p>
+                                    </div>
+                                </div>
+                                <!-- End Chat. Message Area. Message. Body. -->
+                            </div>
+                        </section>
+                        <!-- End Chat. Message Area. Message (To). -->
+                        <!-- Chat. Message Area. Message (To). -->
+                        <section class="g-mb-30">
+                            <div class="media g-mb-12">
+                                <!-- Chat. Message Area. Message. Body. -->
+                                <div class="media-body">
+                                    <div class="d-inline-block g-width-170 g-width-auto--sm g-bg-lightblue-v6 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15">
+                                        <p class="mb-0">Merci de m'avoir ajouté</p>
                                     </div>
                                 </div>
                                 <!-- End Chat. Message Area. Message. Body. -->
@@ -108,7 +120,7 @@ include('includes/header.php') ?>
                             <!-- Chat. Message Area. Message Time -->
                             <em class="d-flex align-self-center align-items-center justify-content-end g-font-style-normal g-color-gray-light-v1 g-mr-50">
                                 <i class="hs-admin-time icon-clock g-mr-5"></i>
-                                <small>11:49 PM</small>
+                                <small>14h52</small>
                             </em>
                             <!-- End Chat. Message Area. Message Time -->
                         </section>
@@ -117,10 +129,10 @@ include('includes/header.php') ?>
                     <!-- End Chat. Message Area. Messages. -->
 
                     <footer class="g-bg-gray-light-v8 g-px-15 g-px-30--lg g-py-10 g-py-25--lg">
-                        <form action="#!">
+                        <form action="#" onsubmit="sendMessage()" disabled>
                             <div class="media align-items-top">
                                 <div class="media-body g-ml-25">
-                                    <textarea class="form-control u-textarea-expandable g-resize-none g-bg-transparent g-brd-none w-100 p-0 g-mt-minus-3" placeholder="Écrivez quelque chose"></textarea>
+                                    <textarea class="form-control u-textarea-expandable g-resize-none g-bg-transparent g-brd-none w-100 p-0 g-mt-minus-3" id="areaMessage" placeholder="Écrivez quelque chose"></textarea>
                                 </div>
 
                                 <div class="d-flex ml-auto">
@@ -140,3 +152,31 @@ include('includes/header.php') ?>
 </div>
 
 <?php include('includes/footer.php') ?>
+
+<script>
+    function sendMessage(){
+        let currentDate = new Date();
+        let stringHeure = currentDate.getHours() + 'h' + currentDate.getMinutes();
+        let html = "<section class=\"g-mb-30\">\n" +
+            "                            <div class=\"media g-mb-12\">\n" +
+            "                                <!-- Chat. Message Area. Message. Body. -->\n" +
+            "                                <div class=\"media-body\">\n" +
+            "                                    <div class=\"d-inline-block g-width-170 g-width-auto--sm g-bg-lightblue-v6 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15\">\n" +
+            "                                        <p class=\"mb-0\">"+$('#areaMessage').val()+"</p>\n" +
+            "                                    </div>\n" +
+            "                                </div>\n" +
+            "                                <!-- End Chat. Message Area. Message. Body. -->\n" +
+            "                            </div>\n" +
+            "\n" +
+            "                            <!-- Chat. Message Area. Message Time -->\n" +
+            "                            <em class=\"d-flex align-self-center align-items-center justify-content-end g-font-style-normal g-color-gray-light-v1 g-mr-50\">\n" +
+            "                                <i class=\"hs-admin-time icon-clock g-mr-5\"></i>\n" +
+            "                                <small>"+stringHeure+"</small>\n" +
+            "                            </em>\n" +
+            "                            <!-- End Chat. Message Area. Message Time -->\n" +
+            "                        </section>";
+
+        $('#mCSB_2').append(html);
+        $('#areaMessage').val('');
+    }
+</script>

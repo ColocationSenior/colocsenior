@@ -17,6 +17,16 @@ class MainController
         $builder->addNaturalJoin('Organisations');
         $GLOBALS['view']['news'] = $builder->find();
 
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addOrderBy('idAnnonce', false);
+        $builder->addLimit(0, 4);
+        $builder->addNaturalJoin('Organisations');
+        $GLOBALS['view']['annonces'] = $builder->find();
+
         return include('../app/views/fil_actualite.php');
+    }
+    public function showChat(){
+        return include('../app/views/messages.php');
     }
 }

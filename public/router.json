@@ -294,6 +294,38 @@
       }
     },
     {
+      "route": "/annonce/show/{idAnnonce}",
+      "title": "Article",
+      "controller": "ContentController",
+      "method": "showAnnonce",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/messages/show",
+      "title": "Messages",
+      "controller": "MainController",
+      "method": "showChat",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/login",
       "title": "Login",
       "controller": "UserController",
