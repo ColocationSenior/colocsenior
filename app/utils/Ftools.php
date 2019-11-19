@@ -46,7 +46,7 @@ class Ftools
         return trim(trim($string, $separator));
     }
     public static function uploadProfilePicture($file){
-        echo $infoFile = new SplFileInfo($file['name']);
+        $infoFile = new SplFileInfo($file['name']);
 
         $uploadDir = 'files/profile/';
         $nameFile = self::randomString();
@@ -56,7 +56,7 @@ class Ftools
         else return false;
     }
     public static function uploadPicture($file){
-        echo $infoFile = new SplFileInfo($file['name']);
+        $infoFile = new SplFileInfo($file['name']);
 
         $uploadDir = 'files/pictures/';
         $nameFile = self::randomString();
