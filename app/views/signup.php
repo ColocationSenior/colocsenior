@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Inscription - colocationsenior.fr</title>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
+    <!--=============================================================/post==================================-->
     <link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
@@ -33,7 +33,7 @@
                 <img src="/assets/img/welcome.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" method="post" action="/signup/post">
+            <form class="login100-form validate-form" id="signup-form" method="post" action="/signup/post">
 					<span class="login100-form-title">
 						Inscription
 					</span>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="password" placeholder="Mot de passe">
+                    <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -78,10 +78,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 <!--===============================================================================================-->
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
 <!--===============================================================================================-->
@@ -118,6 +114,21 @@
         )
     </script>
 <?php } ?>
+<script>
+    $('form#signup-form').submit (function() {
+        const passwd = $('input#password-field').val();
+        let mediumRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        if(mediumRegex.test(passwd)) return true;
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Votre mot de passe doit contenir au minimum 8 caractères et être composé d\'une majuscule ainsi qu\'un chiffre!'
+            });
+            return false;
+        }
+    });
+</script>
 
 </body>
 </html>
