@@ -123,7 +123,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Votre mot de passe doit contenir au minimum 8 caractères et être composé d\'une majuscule ainsi qu\'un chiffre!'
+                text: 'Votre mot de passe doit contenir au minimum 8 caractères et être composé d\'une majuscule, d\'une minuscule, d\'un chiffre ainsi que de l\'un des carctères suivants: ! @ # $ % ^ & * '
             });
             return false;
         }
