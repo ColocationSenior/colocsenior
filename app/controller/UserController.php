@@ -33,7 +33,7 @@ class UserController
                 $uppercase = preg_match('@[A-Z]@', $_POST['password']);
                 $lowercase = preg_match('@[a-z]@', $_POST['password']);
                 $number    = preg_match('@[0-9]@', $_POST['password']);
-                $special   = preg_match('@[!@#\$%\^&\*]@', $_POST['password']);
+                $special   = preg_match('@[\!\@\#\$\%\^\&\*]@', $_POST['password']);
 
                 if(!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8) {
                     return require('../app/views/signup.php');
