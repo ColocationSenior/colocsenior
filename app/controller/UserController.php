@@ -202,4 +202,12 @@ class UserController
 
         return include('../app/views/services_list.php');
     }
+    public function listAnnonces(){
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addOrderBy('idService', false);
+        $GLOBALS['view']['annonces'] = $builder->find();
+
+        return include('../app/views/annonces_list.php');
+    }
 }
