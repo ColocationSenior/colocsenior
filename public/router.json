@@ -213,6 +213,23 @@
       }
     },
     {
+      "route": "/services/list",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "listServices", 
+      "request": "POST",  
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/organisation/show/{idOrganisation}",
       "title": "Organisation",
       "controller": "OrganisationController",
