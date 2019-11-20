@@ -194,8 +194,7 @@ class UserController
 
         return include('../app/views/profil_list.php');
     }
-    public function listServices(){
-        $idService = $GLOBALS['url']['param']['idService'];
+    public function listServices(){       
         $builder = new RequestBuilder();
         $builder->setTable('Services');
         $builder->addOrderBy('idService', false);
