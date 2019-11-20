@@ -213,6 +213,22 @@
       }
     },
     {
+      "route": "/logements/list",
+      "title": "Logements",
+      "controller": "UserController",
+      "method": "listLogements",  
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/organisation/show/{idOrganisation}",
       "title": "Organisation",
       "controller": "OrganisationController",

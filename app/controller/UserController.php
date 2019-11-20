@@ -194,4 +194,11 @@ class UserController
 
         return include('../app/views/profil_list.php');
     }
+    public function listLogements(){        
+        $builder = new RequestBuilder();
+        $builder->setTable('Logements');
+        $builder->addOrderBy('idLogement', false);
+        $GLOBALS['view']['logements'] = $builder->find();
+        return include('../app/views/logements_list.php');
+    }
 }
