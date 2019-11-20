@@ -4,7 +4,7 @@ include('includes/header.php') ?>
 
 <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
         <div class="g-pa-20">
-            <form method="post" action="/profil/list">
+            
                 <div class="media flex-wrap g-mb-30">
 
                    <!-- <div class="d-flex align-self-center align-items-center g-ml-10 g-ml-20--md g-ml-40--lg">
