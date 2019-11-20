@@ -216,8 +216,7 @@
       "route": "/services/list",
       "title": "Services",
       "controller": "UserController",
-      "method": "listServices", 
-      "request": "POST",  
+      "method": "listServices",  
       "middleware": {
         "UserManager": [
           {
