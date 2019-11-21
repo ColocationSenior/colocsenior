@@ -30,17 +30,27 @@ class UserController
 
             if(@empty($testEmail)){
                 $password = UserManager::hashMdp($_POST['password']);
+                $uppercase = preg_match('@[A-Z]@', $_POST['password']);
+                $lowercase = preg_match('@[a-z]@', $_POST['password']);
+                $number    = preg_match('@[0-9]@', $_POST['password']);
+                $special   = preg_match('@[\!\@\#\$\%\^\&\*]@', $_POST['password']);
 
-                $builder = new RequestBuilder();
-                $builder->setTable('Users');
-                $builder->addValues(array(
-                    "emailUser" => $_POST['email'],
-                    "firstNameUser" => $_POST['prenom'],
-                    "passwordUser" => $password
-                ));
-                $builder->create();
-                $GLOBALS['view']['notif']['signup'] = 1;
-                $this->login();
+                if(!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8) {
+                    return require('../app/views/signup.php');
+                }else{
+                    $builder = new RequestBuilder();
+                    $builder->setTable('Users');
+                    $builder->addValues(array(
+                        "emailUser" => $_POST['email'],
+                        "firstNameUser" => $_POST['prenom'],
+                        "passwordUser" => $password
+                    ));
+                    $builder->create();
+                    $GLOBALS['view']['notif']['signup'] = 1;
+                    $this->login();
+                }
+
+               
             }
             else{
                 $GLOBALS['view']['notif']['failed'] = 2;
