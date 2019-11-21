@@ -194,4 +194,13 @@ class UserController
 
         return include('../app/views/profil_list.php');
     }
+    public function listAnnonces(){
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addOrderBy('idAnnonce', false);
+        $builder->addNaturalJoin('Organisations');
+        $GLOBALS['view']['annonces'] = $builder->find();
+
+        return include('../app/views/annonces_list.php');
+    }
 }

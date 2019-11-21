@@ -196,6 +196,22 @@
       }
     },
     {
+      "route": "/annonces/list",
+      "title": "Annonces",
+      "controller": "UserController",
+      "method": "listAnnonces",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/profil/list",
       "title": "Profil",
       "controller": "UserController",
