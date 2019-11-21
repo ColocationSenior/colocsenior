@@ -27,7 +27,7 @@
 				<img src="/assets/img/img-contact.png" alt="IMG">
 			</div>
 
-			<form class="contact1-form validate-form" action="/contact/post" method="post">
+			<form class="contact1-form validate-form" id="contact-form" action="/contact/post" method="post">
 				<span class="contact1-form-title">
 					Envoyez un message
 				</span>
@@ -53,7 +53,7 @@
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<button class="contact1-form-btn">
+					<button class="contact1-form-btn" onclick="isConfirm()">
 						<span>
 							Send Email
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -86,6 +86,27 @@
 
 <!--===============================================================================================-->
 	<script src="/assets/js/main_contact.js"></script>
-
+>
+	<?php 
+	if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
+		if(@isset($_POST['name']) && @isset($_POST['email']) && @isset($_POST['subject']) && @isset($_POST['message'])){ ?>
+			<script>
+				Swal.fire(
+					'OK',
+					'Votre message a bien été envoyé',
+					'info'
+				)
+			</script> <?php } else {?>
+		
+		<script>
+				Swal.fire(
+					'Désolé',
+					'Votre message n\'a pas été envoyé. Un ou plusieurs champs n\'ont pas été complété correctement ',
+					'error'
+				)
+			</script>
+		<?php } ?>
+		<?php } ?>
+	
 </body>
 </html>

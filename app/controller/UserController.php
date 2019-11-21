@@ -212,6 +212,7 @@ class UserController
             $builder->create();
             
             return include('../app/views/contact.php');
+                       
         }
       
     }
