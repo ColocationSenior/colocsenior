@@ -374,6 +374,15 @@
       "title": "Contact the support",
       "controller": "UserController",
       "method": "contact"
+      
+    },
+    {
+      "route": "/contact/post",
+      "title": "Contact the support",
+      "controller": "UserController",
+      "method": "contactPost",
+      "request": "POST"
+      
     }
   ]
 }

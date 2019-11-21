@@ -27,9 +27,9 @@
 				<img src="/assets/img/img-contact.png" alt="IMG">
 			</div>
 
-			<form class="contact1-form validate-form">
+			<form class="contact1-form validate-form" action="/contact/post" method="post">
 				<span class="contact1-form-title">
-					Get in touch
+					Envoyez un message
 				</span>
 
 				<div class="wrap-input1 validate-input" data-validate = "Name is required">
@@ -74,6 +74,8 @@
 	<script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/assets/vendor/sweetalert/main.js"></script>
 <!--===============================================================================================-->
 	<script src="/assets/vendor/tilt/tilt.jquery.min.js"></script>
 	<script >
