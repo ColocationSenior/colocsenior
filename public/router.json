@@ -368,6 +368,12 @@
       "title": "Framework error",
       "controller": "ErrorController",
       "method": "show"
+    },
+    {
+      "route": "/contact",
+      "title": "Contact the support",
+      "controller": "UserController",
+      "method": "contact"
     }
   ]
 }

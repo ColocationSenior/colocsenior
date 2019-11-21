@@ -6,6 +6,9 @@ class UserController
     public function login(){
         return include('../app/views/login.php');
     }
+    public function contact(){
+        return include('../app/views/contact.php');
+    }
     public function loginPost(){
         if(@UserManager::connectUser($_POST['email'], $_POST['password'])){
             Ftools::fakeRedirection('/');
