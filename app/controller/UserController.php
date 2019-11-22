@@ -198,8 +198,9 @@ class UserController
         return include('../app/views/profil_list.php');
     }
     public function contactPost(){
-                
-        if(@isset($_POST['name']) && @isset($_POST['email']) && @isset($_POST['subject']) && @isset($_POST['message'])){
+
+        $isPost = false; 
+        if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
             $builder = new RequestBuilder();
             $builder->setTable('Contacts');            
             $builder->addValues(array(
@@ -210,10 +211,9 @@ class UserController
             ));
             if(@isset($_SESSION['user']['idUser'])) $builder->addValue('idUser',$_SESSION['user']['idUser']);
             $builder->create();
-            
-            return include('../app/views/contact.php');
                        
         }
-      
+
+        include('../app/views/contact.php');
     }
 }

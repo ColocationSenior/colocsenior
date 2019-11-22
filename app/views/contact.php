@@ -89,7 +89,8 @@
 	<!--===============================================================================================-->
 	<script src="/assets/js/main_contact.js"></script>
 
-	<?php 
+	<?php
+	if (@isset($isPost) ){
 	if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
 		if(@isset($_POST['name']) && @isset($_POST['email']) && @isset($_POST['subject']) && @isset($_POST['message'])){ ?>
 			<script>
@@ -100,7 +101,9 @@
 				)
 			</script>
 	
-		<?php } else {?>
+		<?php 
+		}
+	 	} else {?>
 
 			<script>
 				Swal.fire(
@@ -109,8 +112,8 @@
 					'error'
 				)
 			</script>
-		<?php } ?>
-	<?php } ?>
+		<?php }
+	 } ?> 
 
 </body>
 
