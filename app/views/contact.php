@@ -56,7 +56,7 @@
 
 				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn">
-						<span>
+						<span class="row align-items-center">
 							Send Email
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 						</span>
