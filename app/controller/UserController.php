@@ -17,6 +17,9 @@ class UserController
     public function signup(){
         return include('../app/views/signup.php');
     }
+    public function cgu(){
+        return include('../app/views/cgu.php');
+    }
     public function signupPost(){
         if(
             @isset($_POST['email']) &&

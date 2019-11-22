@@ -368,6 +368,12 @@
       "title": "Framework error",
       "controller": "ErrorController",
       "method": "show"
+    },
+    {
+      "route": "/cgu",
+      "title": "CGU",
+      "controller": "UserController",
+      "method": "cgu"
     }
   ]
 }
