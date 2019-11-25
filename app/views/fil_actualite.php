@@ -25,10 +25,12 @@ include('includes/header.php') ?>
                     <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
                     <div class="card-block g-px-20 g-px-30--sm g-py-15 g-py-20--sm" style="height:208px;overflow:hidden;background:url('/files/pictures/<?=$annonce['coverAnnonce']?>') center center;background-size:cover;">
                         <?php if(@isset($annonce['idLogement'])){ ?>
-                        <span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-red g-color-white g-rounded-50 g-py-4 g-px-15">Logement</span>
+                            <a href="/logements/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-red g-color-white g-rounded-50 g-py-4 g-px-15">Logement</span></a>
+                        
                         <?php } ?>
                         <?php if(@isset($annonce['idService'])){ ?>
-                        <span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-lightblue-v3 g-color-white g-rounded-50 g-py-4 g-px-15">Service</span>
+                            <a href="/services/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-lightblue-v3 g-color-white g-rounded-50 g-py-4 g-px-15">Service</span></a>
+                        
                         <?php } ?>
                     </div>
                     <section class="row no-gutters g-brd-top g-brd-gray-light-v4">
@@ -60,7 +62,7 @@ include('includes/header.php') ?>
             </div>
             <?php } ?>
             <div class="col-12 g-mb-15">
-                <a class="js-fancybox d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="#" data-src="#new-project-form" data-speed="350">
+                <a class="js-fancybox d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="/annonces/list" data-src="#new-project-form" data-speed="350">
                   <span class="text-center">
                   <span class="d-inline-block g-pos-rel g-width-50 g-height-50 g-font-size-default g-color-secondary g-brd-around g-brd-secondary rounded-circle g-mb-5">
                     <i class="hs-admin-announcement g-absolute-centered"></i>
@@ -148,7 +150,7 @@ include('includes/header.php') ?>
             </div>
             <?php } ?>
             <div class="col-12 g-mb-15">
-                <a class="js-fancybox d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="#" data-src="#new-project-form" data-speed="350">
+                <a class="js-fancybox d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="/article/list" data-src="#new-project-form" data-speed="350">
                   <span class="text-center">
                   <span class="d-inline-block g-pos-rel g-width-50 g-height-50 g-font-size-default g-color-secondary g-brd-around g-brd-secondary rounded-circle g-mb-5">
                     <i class="hs-admin-zoom-in g-absolute-centered"></i>
