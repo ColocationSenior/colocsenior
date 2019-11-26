@@ -12,14 +12,14 @@
                     <span class="g-color-gray-dark-v6">|</span>
                 </li>-->
                 <li class="list-inline-item">
-                    <a class="g-color-gray-dark-v6 g-color-secondary--hover" href="#!">Support</a>
-                </li>
+                    <a class="g-color-gray-dark-v6 g-color-secondary--hover" target="_blank" href="/contact">Contact</a>
+                </li><!--
                 <li class="list-inline-item">
                     <span class="g-color-gray-dark-v6">|</span>
                 </li>
                 <li class="list-inline-item">
                     <a class="g-color-gray-dark-v6 g-color-secondary--hover" href="#!">Contact</a>
-                </li>
+                </li>-->
             </ul>
         </div>
         <!-- End Footer Nav -->
@@ -117,7 +117,6 @@
 
 <!-- JS Custom -->
 <script src="/assets/js/custom.js"></script>
-
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
@@ -171,6 +170,11 @@
             }
         });
     });
+</script>
+<script>
+    function wip(){
+        alert('Comme vous le savez colocationseniors.fr est en construction. Cette fonctionnalité n\'est pas encore disponible mais le sera prochainement !');
+    }
 </script>
 </body>
 

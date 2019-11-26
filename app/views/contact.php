@@ -95,8 +95,8 @@
 		if(@isset($_POST['name']) && @isset($_POST['email']) && @isset($_POST['subject']) && @isset($_POST['message'])){ ?>
 			<script>
 				Swal.fire(
-					'OK',
-					'Votre message a bien été envoyé',
+					'Merci !',
+					'Votre message a bien été envoyé, nous vous repondrons dans les meilleurs délais.',
 					'info'
 				)
 			</script>
