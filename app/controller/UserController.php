@@ -196,9 +196,11 @@ class UserController
     }
     public function listLogements(){        
         $builder = new RequestBuilder();
-        $builder->setTable('Logements');
+        $builder->setTable('Annonces');
         $builder->addOrderBy('idLogement', false);
-        $GLOBALS['view']['logements'] = $builder->find();
+        $builder->addNaturalJoin('Logements');
+        $builder->addNaturalJoin('Organisations');
+        $GLOBALS['view']['annonces'] = $builder->find();
         return include('../app/views/logements_list.php');
     }
 }
