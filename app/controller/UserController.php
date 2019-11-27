@@ -196,9 +196,13 @@ class UserController
     }
     public function listServices(){       
         $builder = new RequestBuilder();
-        $builder->setTable('Services');
-        $builder->addOrderBy('idService', false);        
-        $GLOBALS['view']['services'] = $builder->find();
+        $builder->setTable('Annonces');        
+        $builder->addOrderBy('idService', false);
+        // $builder->addWhere('idService', '!=', null);
+        $builder->addLimit(0, 4);
+        $builder->addNaturalJoin('Services');
+        $builder->addNaturalJoin('Organisations');        
+        $GLOBALS['view']['annonces'] = $builder->find();
 
         return include('../app/views/services_list.php');
     }
