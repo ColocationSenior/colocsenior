@@ -6,6 +6,9 @@ class UserController
     public function login(){
         return include('../app/views/login.php');
     }
+    public function contact(){
+        return include('../app/views/contact.php');
+    }
     public function loginPost(){
         if(@UserManager::connectUser($_POST['email'], $_POST['password'])){
             Ftools::fakeRedirection('/');
@@ -30,17 +33,27 @@ class UserController
 
             if(@empty($testEmail)){
                 $password = UserManager::hashMdp($_POST['password']);
+                $uppercase = preg_match('@[A-Z]@', $_POST['password']);
+                $lowercase = preg_match('@[a-z]@', $_POST['password']);
+                $number    = preg_match('@[0-9]@', $_POST['password']);
+                $special   = preg_match('@[\!\@\#\$\%\^\&\*]@', $_POST['password']);
 
-                $builder = new RequestBuilder();
-                $builder->setTable('Users');
-                $builder->addValues(array(
-                    "emailUser" => $_POST['email'],
-                    "firstNameUser" => $_POST['prenom'],
-                    "passwordUser" => $password
-                ));
-                $builder->create();
-                $GLOBALS['view']['notif']['signup'] = 1;
-                $this->login();
+                if(!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8) {
+                    return require('../app/views/signup.php');
+                }else{
+                    $builder = new RequestBuilder();
+                    $builder->setTable('Users');
+                    $builder->addValues(array(
+                        "emailUser" => $_POST['email'],
+                        "firstNameUser" => $_POST['prenom'],
+                        "passwordUser" => $password
+                    ));
+                    $builder->create();
+                    $GLOBALS['view']['notif']['signup'] = 1;
+                    $this->login();
+                }
+
+               
             }
             else{
                 $GLOBALS['view']['notif']['failed'] = 2;
@@ -202,5 +215,24 @@ class UserController
         $GLOBALS['view']['annonces'] = $builder->find();
 
         return include('../app/views/annonces_list.php');
+    }
+    public function contactPost(){
+
+        $isPost = false; 
+        if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
+            $builder = new RequestBuilder();
+            $builder->setTable('Contacts');            
+            $builder->addValues(array(
+                'nameContact' => $_POST['name'],
+                'emailContact' => $_POST['email'],
+                'subjectContact' => $_POST['subject'],
+                'contentContact' => $_POST['message']                
+            ));
+            if(@isset($_SESSION['user']['idUser'])) $builder->addValue('idUser',$_SESSION['user']['idUser']);
+            $builder->create();
+                       
+        }
+
+        include('../app/views/contact.php');
     }
 }
