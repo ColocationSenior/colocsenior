@@ -374,6 +374,21 @@
       "title": "CGU",
       "controller": "UserController",
       "method": "cgu"
+    },
+    {
+      "route": "/contact",
+      "title": "Contact the support",
+      "controller": "UserController",
+      "method": "contact"
+      
+    },
+    {
+      "route": "/contact/post",
+      "title": "Contact the support",
+      "controller": "UserController",
+      "method": "contactPost",
+      "request": "POST"
+      
     }
   ]
 }

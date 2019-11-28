@@ -67,7 +67,7 @@
                 <!-- End Logo -->
 
                 <!-- Sidebar Toggler -->
-                <a class="js-side-nav u-header__nav-toggler d-flex align-self-center ml-auto" href="#!"
+                <a class="js-side-nav u-header__nav-toggler d-flex align-self-center ml-auto" href="#"
                    data-hssm-class="u-side-nav--mini u-sidebar-navigation-v1--mini"
                    data-hssm-body-class="u-side-nav-mini" data-hssm-is-close-all-except-this="true"
                    data-hssm-target="#sideNav">
@@ -83,7 +83,7 @@
 
             <!-- Top Search Bar -->
             <form id="searchMenu" class="u-header--search col-sm g-py-12 g-ml-15--sm g-ml-20--md g-mr-10--sm"
-                  aria-labelledby="searchInvoker" style="display:none;" action="#!">
+                  aria-labelledby="searchInvoker" style="display:none;" action="#">
                 <div class="input-group g-max-width-450">
                     <input class="form-control form-control-md g-rounded-4" type="text"
                            placeholder="Enter search keywords">
@@ -105,7 +105,7 @@
                 <div class="g-pos-rel g-hidden-sm-down g-mr-5" style="display:none;">
                     <a id="messagesInvoker"
                        class="d-block text-uppercase u-header-icon-v1 g-pos-rel g-width-40 g-height-40 rounded-circle g-font-size-20"
-                       href="#!" aria-controls="messagesMenu" aria-haspopup="true" aria-expanded="false"
+                       href="#" aria-controls="messagesMenu" aria-haspopup="true" aria-expanded="false"
                        data-dropdown-event="click" data-dropdown-target="#messagesMenu"
                        data-dropdown-type="css-animation" data-dropdown-duration="300"
                        data-dropdown-animation-in="fadeIn" data-dropdown-animation-out="fadeOut">
@@ -120,7 +120,7 @@
                             <h4 class="d-flex align-self-center text-uppercase g-font-size-default g-letter-spacing-0_5 g-mr-20 g-mb-0">
                                 3 nouveaux messages</h4>
                             <div class="media-body align-self-center text-right">
-                                <a class="g-color-secondary" href="#!">Tout voir</a>
+                                <a class="g-color-secondary" href="#">Tout voir</a>
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@
                                 </div>
 
                                 <div class="media-body">
-                                    <h5 class="g-font-size-16 g-font-weight-400 g-mb-5"><a href="#!">Verna Swanson</a>
+                                    <h5 class="g-font-size-16 g-font-weight-400 g-mb-5"><a href="#">Verna Swanson</a>
                                     </h5>
                                     <p class="g-mb-10">Not so many years businesses used to grunt at using</p>
 
@@ -141,7 +141,7 @@
                                         <i class="hs-admin-time icon-clock g-mr-5"></i> <small>Il y a 5 min</small>
                                     </em>
                                 </div>
-                                <a class="u-link-v2" href="#!">Lire</a>
+                                <a class="u-link-v2" href="#">Lire</a>
                             </li>
                             <!-- End Top Messages List Item -->
                         </ul>
@@ -153,7 +153,7 @@
                 <!-- Top Search Bar (Mobi) -->
                 <a id="searchInvoker"
                    class="g-hidden-sm-up text-uppercase u-header-icon-v1 g-pos-rel g-width-40 g-height-40 rounded-circle g-font-size-20"
-                   href="#!" aria-controls="searchMenu" aria-haspopup="true" aria-expanded="false"
+                   href="#" aria-controls="searchMenu" aria-haspopup="true" aria-expanded="false"
                    data-is-mobile-only="true" data-dropdown-event="click"
                    data-dropdown-target="#searchMenu" data-dropdown-type="css-animation" data-dropdown-duration="300"
                    data-dropdown-animation-in="fadeIn" data-dropdown-animation-out="fadeOut">
@@ -164,7 +164,7 @@
                 <!-- Top User -->
                 <div class="col-auto d-flex g-pt-5 g-pt-0--sm g-pl-10 g-pl-20--sm">
                     <div class="g-pos-rel g-px-10--lg">
-                        <a id="profileMenuInvoker" class="d-block" href="#!" aria-controls="profileMenu"
+                        <a id="profileMenuInvoker" class="d-block" href="#" aria-controls="profileMenu"
                            aria-haspopup="true" aria-expanded="false" data-dropdown-event="click"
                            data-dropdown-target="#profileMenu" data-dropdown-type="css-animation"
                            data-dropdown-duration="300"
@@ -185,7 +185,7 @@
                             class="g-pos-abs g-left-0 g-width-100x--lg g-nowrap g-font-size-14 g-py-20 g-mt-17 rounded"
                             aria-labelledby="profileMenuInvoker">
                             <li class="g-hidden-sm-up g-mb-10">
-                                <a class="media g-py-5 g-px-20" href="#!">
+                                <a class="media g-py-5 g-px-20" href="#">
                                     <span class="d-flex align-self-center g-mr-12">
                                         <i class="hs-admin-bell"></i>
                                     </span>
@@ -250,7 +250,7 @@
                 <!-- Annonces -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#!" data-hssm-target="#subMenu1">
+                       href="#" data-hssm-target="#subMenu1">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-announcement"></i>
                         </span>
@@ -264,7 +264,7 @@
                     <ul id="subMenu1" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0">
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="dashboards/dashboard-v1.html">
+                               href="#" onclick="wip()">
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-home"></i>
                                 </span>
@@ -273,7 +273,7 @@
                         </li>
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="dashboards/dashboard-v2.html">
+                               href="#" onclick="wip()">
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-comments-smiley"></i>
                                 </span>
@@ -287,7 +287,7 @@
                 <!-- Blog -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="pages/pages-timeline.html">
+                       href="#" onclick="wip()">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-book"></i>
                         </span>
@@ -299,7 +299,7 @@
                 <!-- Messagerie -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="/messages/show">
+                       href="#" onclick="wip()">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-comment-alt"></i>
                         </span>
@@ -311,7 +311,7 @@
                 <!-- Annonces -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#!" data-hssm-target="#subMenu2">
+                       href="#" data-hssm-target="#subMenu2">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-themify-favicon"></i>
                         </span>
@@ -341,6 +341,15 @@
                                 <span class="media-body align-self-center">Trouver de nouveaux amis</span>
                             </a>
                         </li>
+                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
+                               href="/contact" target="_blank">
+                                <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                    <i class="hs-admin-zoom-in"></i>
+                                </span>
+                                <span class="media-body align-self-center">Support</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!-- End Annonces -->
@@ -357,11 +366,11 @@
                 </li>
                 <!-- End blog -->
 
-                <?php if($_SESSION['user']['levelUser'] >= 2 || @isset($_SESSION['organisation']['idOrganisation'])){ ?>
+                <?php if($_SESSION['user']['levelUser'] >= 4 || @isset($_SESSION['organisation']['idOrganisation'])){ ?>
                 <!-- Publier -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#!" data-hssm-target="#subMenu3">
+                       href="#" data-hssm-target="#subMenu3">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-write"></i>
                         </span>
