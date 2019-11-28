@@ -6,6 +6,9 @@ class UserController
     public function login(){
         return include('../app/views/login.php');
     }
+    public function contact(){
+        return include('../app/views/contact.php');
+    }
     public function loginPost(){
         if(@UserManager::connectUser($_POST['email'], $_POST['password'])){
             Ftools::fakeRedirection('/');
@@ -203,5 +206,24 @@ class UserController
         $GLOBALS['view']['users'] = $builder->find();
 
         return include('../app/views/profil_list.php');
+    }
+    public function contactPost(){
+
+        $isPost = false; 
+        if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
+            $builder = new RequestBuilder();
+            $builder->setTable('Contacts');            
+            $builder->addValues(array(
+                'nameContact' => $_POST['name'],
+                'emailContact' => $_POST['email'],
+                'subjectContact' => $_POST['subject'],
+                'contentContact' => $_POST['message']                
+            ));
+            if(@isset($_SESSION['user']['idUser'])) $builder->addValue('idUser',$_SESSION['user']['idUser']);
+            $builder->create();
+                       
+        }
+
+        include('../app/views/contact.php');
     }
 }

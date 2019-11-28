@@ -29,4 +29,5 @@ class MainController
     public function showChat(){
         return include('../app/views/messages.php');
     }
+    
 }

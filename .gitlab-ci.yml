@@ -1,0 +1,26 @@
+stages:
+  - release
+
+.release_template: &release_definition
+  image: docker:stable
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $REGISTRY_PASSWORD registry.gitlab.com
+    - docker info | grep Registry
+    - apk add --no-cache python py-pip git
+    - pip install python-magic
+    - apk --purge del py-pip
+
+
+release-image:
+  <<: *release_definition
+  stage: release
+  script:
+    - docker build -t registry.gitlab.com/delia-inc/colocation-senior .
+    - docker push registry.gitlab.com/delia-inc/colocation-senior
+  only:
+    - master
+  when: manual
+  tags:
+    - docker
