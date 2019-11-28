@@ -9,7 +9,14 @@ include('includes/header.php') ?>
             <div class="col-xl-3 col-md-6 g-mb-30">
                 <div class="card g-brd-gray-light-v7 rounded">
                     <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
-                        <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15"><?=$annonce['titleAnnonce']?></h3>
+                        <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15">
+                        <?php if(strlen($annonce['titleAnnonce']) > 43) {
+                              echo substr($annonce['titleAnnonce'] ,0,44) . ". . .";
+                            }else{
+                                echo $annonce['titleAnnonce'];
+                            }
+                          ?>
+                        </h3>
                     </header>
                     <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
                     <div class="card-block g-px-20 g-px-30--sm g-py-15 g-py-20--sm" style="height:208px;overflow:hidden;background:url('/files/pictures/<?=$annonce['coverAnnonce']?>') center center;background-size:cover;">
