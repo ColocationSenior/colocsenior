@@ -19,7 +19,13 @@
                 </li>
                 <li class="list-inline-item">
                     <a class="g-color-gray-dark-v6 g-color-secondary--hover" href="#!">Contact</a>
-                </li>-->
+                </li>
+                <li class="list-inline-item">
+                    <span class="g-color-gray-dark-v6">|</span>
+                </li>
+                <li class="list-inline-item">
+                    <a class="g-color-gray-dark-v6 g-color-secondary--hover" href="/cgu">CGU</a>
+                </li>
             </ul>
         </div>
         <!-- End Footer Nav -->
