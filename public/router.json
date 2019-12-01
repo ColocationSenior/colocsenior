@@ -403,6 +403,12 @@
       "method": "show"
     },
     {
+      "route": "/cgu",
+      "title": "CGU",
+      "controller": "UserController",
+      "method": "cgu"
+    },
+    {
       "route": "/contact",
       "title": "Contact the support",
       "controller": "UserController",
