@@ -226,4 +226,13 @@ class UserController
 
         include('../app/views/contact.php');
     }
+    public function listLogements(){        
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addOrderBy('idLogement', false);
+        $builder->addNaturalJoin('Logements');
+        $builder->addNaturalJoin('Organisations');
+        $GLOBALS['view']['annonces'] = $builder->find();
+        return include('../app/views/logements_list.php');
+    }
 }
