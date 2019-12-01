@@ -179,11 +179,28 @@
         ]
       }
     },
+    
     {
       "route": "/profil/list",
       "title": "Profil",
       "controller": "UserController",
       "method": "listProfil",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/services/list",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "listServices",  
       "middleware": {
         "UserManager": [
           {
