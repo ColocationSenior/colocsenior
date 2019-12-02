@@ -65,4 +65,8 @@ class Ftools
         if(move_uploaded_file($file['tmp_name'], $uploadFile)) return $nameFile.'.'.$infoFile->getExtension();
         else return false;
     }
+    public static function writeLogFile($filePath, $log){
+        $request = "INSERT INTO Logs (requestLog) VALUES ('".$log."')";
+        SPDO::getInstance()->getPDO()->query($request);
+    }
 }
