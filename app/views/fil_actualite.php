@@ -28,7 +28,7 @@ include('includes/header.php') ?>
                         <span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-red g-color-white g-rounded-50 g-py-4 g-px-15">Logement</span>
                         <?php } ?>
                         <?php if(@isset($annonce['idService'])){ ?>
-                        <span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-lightblue-v3 g-color-white g-rounded-50 g-py-4 g-px-15">Service</span>
+                        <a href="/services/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-lightblue-v3 g-color-white g-rounded-50 g-py-4 g-px-15">Service</span></a>
                         <?php } ?>
                     </div>
                     <section class="row no-gutters g-brd-top g-brd-gray-light-v4">
