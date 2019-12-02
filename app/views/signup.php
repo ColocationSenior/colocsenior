@@ -46,7 +46,7 @@
 						</span>
                 </div>
 
-                <div class="wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input" data-validate="Un prénom est requis">
                     <input class="input100" type="text" name="prenom" placeholder="Prénom">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -54,7 +54,7 @@
 						</span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                <div class="wrap-input100 validate-input" data-validate = "Un mot de passe est requis">
                     <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
