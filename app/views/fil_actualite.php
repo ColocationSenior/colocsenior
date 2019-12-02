@@ -60,7 +60,7 @@ include('includes/header.php') ?>
             </div>
             <?php } ?>
             <div class="col-12 g-mb-15">
-                <a onclick="wip()" class="d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="#">
+                <a class="d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="/annonces/list">
                   <span class="text-center">
                   <span class="d-inline-block g-pos-rel g-width-50 g-height-50 g-font-size-default g-color-secondary g-brd-around g-brd-secondary rounded-circle g-mb-5">
                     <i class="hs-admin-announcement g-absolute-centered"></i>
