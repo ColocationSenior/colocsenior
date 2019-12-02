@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Un prénom est requis">
-                    <input class="input100" type="text" name="prenom" placeholder="Prénom">
+                    <input class="input100" type="text" name="prenom" required placeholder="Prénom">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
