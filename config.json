@@ -2,9 +2,9 @@
   "database": {
     "engine": "mysql",
     "path": "delia.ovh:3307",
-    "name": "colocsenior",
+    "name": "colocsenior_prod",
     "charset": "utf8",
-    "user": "colocsenior",
+    "user": "colocsenior_prod",
     "password": "p@ssw0rd"
   }
 }
