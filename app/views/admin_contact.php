@@ -20,8 +20,8 @@ include('includes/header.php') ?>
                                 class="d-flex d-lg-block g-brd-bottom g-brd-none--lg g-brd-gray-light-v4 g-overflow-x-auto">
 
                                 <!-- Contact List Item -->
-                                <a onclick="showContact(<?=$contact['contentContact'], $contact['subjectContact'],$contact['emailContact']?>)">
-                                <section class="media justify-content-center g-bg-gray-light-v8--active g-brd-bottom--lg g-brd-gray-light-v4 g-pa-25 g-pa-10--lg">
+                                <a onclick="getMessageContact(<?=$contact['idContact']?>)" href="?click=1"><section
+                                    class="media justify-content-center g-bg-gray-light-v8--active g-brd-bottom--lg g-brd-gray-light-v4 g-pa-25 g-pa-10--lg">
                                     <!-- Chat List Item: Avatar -->
                                     <div class="d-flex g-mr-20--lg">
                                         <span class="d-inline-block g-pos-rel">
@@ -167,8 +167,3 @@ include('includes/header.php') ?>
 
 <?php include('includes/footer.php') ?>
 
-<script>
-    function showContact(idContact){
-        console.log('<?=$contact['contentContact']?>');
-    }
-</script>
