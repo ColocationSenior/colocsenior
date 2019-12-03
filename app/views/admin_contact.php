@@ -20,8 +20,8 @@ include('includes/header.php') ?>
                                 class="d-flex d-lg-block g-brd-bottom g-brd-none--lg g-brd-gray-light-v4 g-overflow-x-auto">
 
                                 <!-- Contact List Item -->
-                                <section
-                                    class="media justify-content-center g-bg-gray-light-v8--active g-brd-bottom--lg g-brd-gray-light-v4 g-pa-15 g-pa-10--lg">
+                                <a onclick="showContact(<?=$contact['contentContact'], $contact['subjectContact'],$contact['emailContact']?>)">
+                                <section class="media justify-content-center g-bg-gray-light-v8--active g-brd-bottom--lg g-brd-gray-light-v4 g-pa-25 g-pa-10--lg">
                                     <!-- Chat List Item: Avatar -->
                                     <div class="d-flex g-mr-20--lg">
                                         <span class="d-inline-block g-pos-rel">
@@ -32,37 +32,32 @@ include('includes/header.php') ?>
                                     <!-- End Contact List Item: Avatar -->
 
                                     <div class="media-body align-self-center g-hidden-md-down">
-                                        <div class="media g-mb-10">
+                                        <div class="media g-mb-12">
                                             <!-- Contact List Item: Name -->
-                                            <h3 class="d-flex align-self-center g-font-size-16 g-font-weight-400 mb-0">
+                                            <h3 class="d-flex align-self-center g-font-size-16 g-font-weight-400 mb-0" style="color: #222E44;" >
                                                 <?=$contact['nameContact']?></h3>
                                             <!-- End Contact List Item: Name -->
 
                                             <!-- Contact List Item: Subject -->
                                             <h3
-                                                class="d-flex align-self-center g-font-size-16 g-font-weight-400 mb-0 ml-auto">
+                                                class="d-flex align-self-center g-font-size-16 g-font-weight-400 mb-0 ml-auto" style="color: #222E44;">
                                                 <?=$contact['subjectContact']?></h3>
                                             <!-- End Contact List Item: Subject -->
                                              
                                             <!-- Contact List Item: Time -->
                                             <em
-                                                class="d-flex align-self-center align-items-center g-font-style-normal g-color-gray-light-v1 ml-auto">
+                                                class="d-flex align-self-center align-items-center g-font-style-normal g-color-gray-light-v1 ml-auto" style="color: #222E44;">
                                                 <i class="hs-admin-time icon-clock g-mr-5"></i>
                                                 <small>14h51</small>
                                             </em>
                                             <!-- End Contact List Item: Time -->
                                         </div>
 
-                                        <!-- Contact List Item: Email -->
-                                <h3
-                                                class="d-flex align-self-center g-font-size-13 g-font-weight-400 mb-0 mt-5;">
-                                               <em><a href="mailto:<?=$contact['emailContact']?>">Répondre à <?=$contact['nameContact']?></a></h3></em> 
-                                            <!-- End Contact List Item: Email -->
-
+                                        
                                 <!-- End Chat List Item -->
 
                                    
-                                </section>
+                                </section></a>
                                 
                             </div>
                             <!-- End Chat List -->
@@ -78,9 +73,12 @@ include('includes/header.php') ?>
                     <!-- Chat. Message Area. Header. -->
                     <header class="g-px-15 g-px-25--lg">
                         <div class="media g-height-50 g-height-80--lg">
+                        <?php if (isset($_GET["click"])) { 
+                           
+                            ?>
                             <div
                                 class="media-body d-flex align-self-center justify-content-center g-font-size-16--md g-color-black">
-                                <a class="g-color-black" href="#">Benjamin FILAM</a>
+                                <a class="g-color-black" href="/profil/show/{idUser}"><?=$contact['nameContact']?></a>
                             </div>
                         </div>
                     </header>
@@ -92,83 +90,71 @@ include('includes/header.php') ?>
                     <div class="js-custom-scroll g-height-50vh--lg g-pa-15 g-pa-25--lg" id="block_chat">
                         <!-- Chat. Message Area. Message (From). -->
                         <section class="g-mb-30">
-                            <div class="media g-mb-12">
+                            <div class="media g-mb-10">
                                 <!-- Chat. Message Area. Message. Body. -->
-                                <div class="media-body">
+                                <div class="media-body align-self-center">
+                                <div
+                                        class="d-flex align-self-center  g-width-auto--sm g-bg-gray-light-v8 g-font-size-18 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15 mb-0">
+                                        <p class=""><?=$contact['subjectContact']?></p>
+                                    </div> <br>
                                     <div
-                                        class="d-inline-block g-width-170 g-width-auto--sm g-bg-gray-light-v8 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15">
-                                        <p class="mb-0">Bonjour, ravis de faire votre connaissance !</p>
+                                        class="d-flex align-self-center g-width-auto--sm g-bg-gray-light-v8 g-font-size-18 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15 ml-auto">
+                                        <p class=""><?=$contact['emailContact']?></p>
+                                    </div> <br>
+                                    <div
+                                        class="d-flex align-self-center g-width-auto--sm g-bg-gray-light-v8 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15  ml-auto">
+                                        <p class=""><?=$contact['contentContact']?></p>
                                     </div>
                                 </div>
                                 <!-- End Chat. Message Area. Message. Body. -->
                             </div>
 
-                            <!-- Chat. Message Area. Message Time -->
-                            <em
-                                class="d-flex align-self-center align-items-center g-font-style-normal g-color-gray-light-v1 g-ml-50">
-                                <i class="hs-admin-time icon-clock g-mr-5"></i>
-                                <small>11h49</small>
-                            </em>
-                            <!-- End Chat. Message Area. Message Time -->
+                            
                         </section>
                         <!-- End Chat. Message Area. Message (From). -->
 
                         <!-- Chat. Message Area. Message (To). -->
                         <section class="g-mb-30">
                             <div class="media g-mb-12">
-                                <!-- Chat. Message Area. Message. Body. -->
-                                <div class="media-body">
-                                    <div
-                                        class="d-inline-block g-width-170 g-width-auto--sm g-bg-lightblue-v6 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15">
-                                        <p class="mb-0">Moi de même</p>
-                                    </div>
-                                </div>
-                                <!-- End Chat. Message Area. Message. Body. -->
+                                
                             </div>
                         </section>
                         <!-- End Chat. Message Area. Message (To). -->
                         <!-- Chat. Message Area. Message (To). -->
                         <section class="g-mb-30">
-                            <div class="media g-mb-12">
-                                <!-- Chat. Message Area. Message. Body. -->
-                                <div class="media-body">
-                                    <div
-                                        class="d-inline-block g-width-170 g-width-auto--sm g-bg-lightblue-v6 g-font-size-12 g-font-size-default--lg g-color-gray-dark-v6 g-rounded-10 g-pa-10-15">
-                                        <p class="mb-0">Merci de m'avoir ajouté</p>
-                                    </div>
-                                </div>
-                                <!-- End Chat. Message Area. Message. Body. -->
-                            </div>
+                            
 
-                            <!-- Chat. Message Area. Message Time -->
-                            <em
-                                class="d-flex align-self-center align-items-center justify-content-end g-font-style-normal g-color-gray-light-v1 g-mr-50">
-                                <i class="hs-admin-time icon-clock g-mr-5"></i>
-                                <small>14h52</small>
-                            </em>
-                            <!-- End Chat. Message Area. Message Time -->
+                            
                         </section>
                         <!-- End Chat. Message Area. Message (To). -->
                     </div>
                     <!-- End Chat. Message Area. Messages. -->
+                    <?php } ?>
+                    
 
                     <footer class="g-bg-gray-light-v8 g-px-15 g-px-30--lg g-py-10 g-py-25--lg">
-                        <form action="#" onsubmit="sendMessage()" disabled>
+                        <form>
                             <div class="media align-items-top">
                                 <div class="media-body g-ml-25">
-                                    <textarea
-                                        class="form-control u-textarea-expandable g-resize-none g-bg-transparent g-brd-none w-100 p-0 g-mt-minus-3"
-                                        id="areaMessage" placeholder="Écrivez quelque chose"></textarea>
+
+                                    <div class="d-flex ml-auto">
+
+                                        <!-- Contact List Item: Email -->
+                                        <button
+                                            class="btn btn-link d-flex align-self-top align-items-top u-link-v5 g-color-secondary g-color-secondary--hover p-0 g-ml-15">
+                                            <i class="hs-admin-arrow-top-right g-font-size-18 g-line-height-1_4"></i>
+                                            <span
+                                                class="g-hidden-sm-down g-font-weight-300 g-font-size-12 g-font-size-default--md  g-ml-4 g-ml-8--md">
+                                                <a style="color: #66CCE4; font-weight: bold;" href="mailto:<?=$contact['emailContact']?>">Répondre à <?=$contact['nameContact']?></a>
+                                            </span>
+                                        </button>
+                                        <!-- End Contact List Item: Email -->
+
+                                    </div>
+
                                 </div>
 
-                                <div class="d-flex ml-auto">
-                                    <button
-                                        class="btn btn-link d-flex align-self-top align-items-top u-link-v5 g-color-secondary g-color-secondary--hover p-0 g-ml-15">
-                                        <i class="hs-admin-arrow-top-right g-font-size-18 g-line-height-1_4"></i>
-                                        <span
-                                            class="g-hidden-sm-down g-font-weight-300 g-font-size-12 g-font-size-default--md g-ml-4 g-ml-8--md">Envoyer</span>
-                                    </button>
-                                </div>
+
                             </div>
                         </form>
                     </footer>
@@ -181,3 +167,8 @@ include('includes/header.php') ?>
 
 <?php include('includes/footer.php') ?>
 
+<script>
+    function showContact(idContact){
+        console.log('<?=$contact['contentContact']?>');
+    }
+</script>
