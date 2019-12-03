@@ -4,8 +4,8 @@
 class ErrorController
 {
     public function show(){
-        http_response_code(404);
-        echo "error";
-        //return include('../app/views/404.php');
+        header('HTTP/1.0 404 Not Found');
+        return include('../app/views/error.php');
+        exit;
     }
 }
