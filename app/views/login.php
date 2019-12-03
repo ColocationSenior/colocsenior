@@ -102,8 +102,9 @@
 <script>
     function signupPopup(){
         Swal.fire(
-            'Inscription effectuée!',
-            'Votre inscription a été enregistrée. Pour continuer veuillez cliquer sur le lien présent dans votre boite email!',
+            'Inscription effectuée!',/*
+            'Votre inscription a été enregistrée. Pour continuer veuillez cliquer sur le lien présent dans votre boite email!',*/
+            'Votre inscription a été enregistrée, vous pouvez vous connecter !',
             'success'
         )
     }
