@@ -8,7 +8,7 @@ stages:
   before_script:
     - docker login -u gitlab-ci-token -p $REGISTRY_PASSWORD registry.gitlab.com
     - docker info | grep Registry
-    - apk add --no-cache python py-pip git
+    - apk add --no-cache python py-pip git curl
     - pip install python-magic
     - apk --purge del py-pip
 
