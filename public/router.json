@@ -375,6 +375,22 @@
       }
     },
     {
+      "route": "/contact/show",
+      "title": "Contacts",
+      "controller": "MainController",
+      "method": "showContact",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/login",
       "title": "Login",
       "controller": "UserController",
