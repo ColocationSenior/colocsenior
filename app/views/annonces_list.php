@@ -66,16 +66,6 @@ include('includes/header.php') ?>
                 </div>
             </div>
             <?php } ?>
-            <div class="col-12 g-mb-15">
-                <a class="js-fancybox d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="#" data-src="#new-project-form" data-speed="350">
-                  <span class="text-center">
-                  <span class="d-inline-block g-pos-rel g-width-50 g-height-50 g-font-size-default g-color-secondary g-brd-around g-brd-secondary rounded-circle g-mb-5">
-                    <i class="hs-admin-announcement g-absolute-centered"></i>
-                  </span>
-                  <span class="d-block g-font-weight-300 g-font-size-16 g-color-gray-dark-v6 g-color-secondary--parent-hover">Toutes les annonces</span>
-                  </span>
-                </a>
-            </div>
         </div>
 
 <?php include('includes/footer.php') ?>
