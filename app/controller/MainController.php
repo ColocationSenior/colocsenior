@@ -32,8 +32,7 @@ class MainController
     public function showContact(){
         $builder = new RequestBuilder();
         $builder->setTable('Contacts');
-        $builder->addOrderBy('idContact', true);
-        $builder->addLimit(0, 8);          
+        $builder->addOrderBy('idContact');                 
         $GLOBALS['view']['contacts'] = $builder->find();
 
         return include('../app/views/admin_contact.php');
