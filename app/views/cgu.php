@@ -5,7 +5,7 @@ include('includes/header.php') ?>
 <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
     <div class="m-5 pb-10 g-pa-20">
         <div class="row">          
-
+<div class="container">
             <!--article-content-->
             <div class="twelve columns">
                 <div class="article-content">
@@ -329,6 +329,7 @@ include('includes/header.php') ?>
                         et vos informations de profil.</p>
                 </div>
                 <!--end article-content-->
+            </div>
             </div>
         </div>
     </div>
