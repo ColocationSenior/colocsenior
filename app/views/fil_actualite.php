@@ -95,7 +95,7 @@ include('includes/header.php') ?>
         <?php foreach($GLOBALS['view']['users'] as $user){ ?>
             <!-- User Card -->
             <div class="col-xl-3 col-md-6">
-                <div class="card-profil g-brd-gray-light-v7 text-center g-pt-40 g-pt-60--md g-mb-30">
+                <div class="card card-profil g-brd-gray-light-v7 text-center g-pt-40 g-pt-60--md g-mb-30">
                     <a href="/profil/show/<?=$user['idUser']?>">
                         <header class="g-mb-30">
                             <img class="img-fluid rounded-circle g-width-125 g-height-125 g-mb-14" src="/files/profile/<?=$user['pictureUser']?>" alt="Image description">
