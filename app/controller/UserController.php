@@ -203,7 +203,7 @@ class UserController
         $perPage = 4;
         $nbPage = ceil($nbUsers / $perPage);
 
-        for($i = 0; $i <= $nbPage; $i++)
+        for($i = 1; $i <= $nbPage; $i++)
         {
             $GLOBALS['view']['nbPage'][$i] =  $i;                        
         }
@@ -211,7 +211,7 @@ class UserController
 
         $builder = new RequestBuilder();
         $builder->setTable('Users');
-        $builder->addLimit(($page - 1 ) * $perPage, $perPage);
+        $builder->addLimit((($page - 1)  * $perPage), $perPage);
         $builder->addOrderBy('updatedUser', false);
         $builder->addWhere('idUser', '!=', $_SESSION['user']['idUser']);
 
