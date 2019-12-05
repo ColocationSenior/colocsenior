@@ -197,6 +197,12 @@
       }
     },
     {
+      "route": "/profil/list/{page}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "listProfil"
+    },
+    {
       "route": "/annonces/list",
       "title": "Annonces",
       "controller": "UserController",

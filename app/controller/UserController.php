@@ -194,8 +194,24 @@ class UserController
         return include('../app/views/friends_list.php');
     }
     public function listProfil(){
+        if(@$GLOBALS['url']['param']['page']) $page = $GLOBALS['url']['param']['page'];
+        else $page = 1;
         $builder = new RequestBuilder();
         $builder->setTable('Users');
+        $totalUsers = $builder->find();
+        $nbUsers = count($totalUsers);
+        $perPage = 4;
+        $nbPage = ceil($nbUsers / $perPage);
+
+        for($i = 0; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addLimit(($page - 1 ) * $perPage, $perPage);
         $builder->addOrderBy('updatedUser', false);
         $builder->addWhere('idUser', '!=', $_SESSION['user']['idUser']);
 
