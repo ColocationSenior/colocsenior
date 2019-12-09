@@ -7,9 +7,9 @@ include('includes/header.php') ?>
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        
+
         text-align: center;
-        
+
     }
 
     #bloc_page a {
@@ -49,7 +49,7 @@ include('includes/header.php') ?>
 
 <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
     <div class="g-pa-20">
-        <form method="post" action="/profil/list">
+        <form method="post" action="/profil/list/">
             <div class="media flex-wrap g-mb-30">
 
                 <div class="d-flex align-self-center align-items-center g-ml-10 g-ml-20--md g-ml-40--lg">
@@ -127,17 +127,30 @@ include('includes/header.php') ?>
                         <strong
                             class="d-block g-font-weight-500 g-font-size-16 g-color-black"><?=$user['cityUser']?></strong>
                         <span class="g-font-weight-300 g-color-gray-dark-v6">ville</span>
-                    </div>                    
+                    </div>
                 </section>
             </div>
         </div>
         <!-- End User Card -->
         <?php } ?>
 
-        <div class="container g-mt-28">
+
+    </div>
+    <div class="container g-mt-28">
         <div id="bloc_page">
 
-            <?php  if($page >= 2 && $page <= $GLOBALS['view']['nbPage'][$nbPage - 3]) {?>
+            <?php  if($page >= 2 && $page <= $GLOBALS['view']['nbPage'][$nbPage - 3]) { 
+                        if ($page == 1) {?>
+            <a class="active"
+                href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
+            <a class="disabled">...</a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+
+            <?php } else { ?>
 
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
@@ -150,55 +163,80 @@ include('includes/header.php') ?>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
 
-            <?php } elseif($page >= $GLOBALS['view']['nbPage'][$nbPage - 2] && $page < $GLOBALS['view']['nbPage'][$nbPage -1]) {  ?>
+            <?php } ?>
 
+
+            <?php } elseif($page >= $GLOBALS['view']['nbPage'][$nbPage - 2] && $page < $GLOBALS['view']['nbPage'][$nbPage -1]) {  ?>
 
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
             <a class="disabled">...</a>
-            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>"><?=$page - 1?></a>
             <a class="active" href=""><?=$page?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
-            <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage - 1] && $page < $GLOBALS['view']['nbPage'][$nbPage]) {  ?>
+            <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage - 1] && $page <= $GLOBALS['view']['nbPage'][$nbPage]) { 
+                        if ($page == 2) {?>
+
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a class="active" href=""><?=$page?></a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+            <?php } else { ?>
 
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
-            <a class="disabled">...</a><a
-                href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>"><?=$page - 1?></a>
+            <a class="disabled">...</a>
             <a class="active" href=""><?=$page?></a>
-            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
 
+            <?php } ?>
 
-            <?php }elseif($page <= 1  ){ ?>
+            <?php }elseif($page == 1 && $nbPage > 1 && $nbPage < 3){ ?>
 
-            <a class="active" href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a class="active"
+                href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+
+            <?php }elseif($page == 1 && $nbPage > 1){ ?>
+
+            <a class="active"
+                href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
             <a class="disabled">...</a>
-            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
 
-            <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage]) {  ?>
+            <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage]) { 
+                        if ($nbPage == 2) {?>
+
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
+            <a class="active"
+                href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+            <?php } elseif($nbPage == 1){  ?>
+            <a class="active"
+                href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+
+            <?php } else {  ?>
 
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
             <a class="disabled">...</a>
-            
+            <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 2]?>"><?=$page - 2?></a>
             <a href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
-
             <a class="active"
                 href="/profil/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
             <?php } ?>
-            
-        </div>
+            <?php } ?>
+
         </div>
     </div>
 </div>
+
 
 <?php include('includes/footer.php') ?>

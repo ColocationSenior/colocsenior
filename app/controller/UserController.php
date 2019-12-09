@@ -194,14 +194,14 @@ class UserController
         return include('../app/views/friends_list.php');
     }
     public function listProfil(){
-        if(@$GLOBALS['url']['param']['page']) $page = $GLOBALS['url']['param']['page'];
-        else $page = 1;
+        
         $builder = new RequestBuilder();
         $builder->setTable('Users');
         $totalUsers = $builder->find();
         $nbUsers = count($totalUsers);
-        $perPage = 4;
+        $perPage = 5;
         $nbPage = ceil($nbUsers / $perPage);
+        $page = $this->pageIsValid($nbPage);
 
         for($i = 1; $i <= $nbPage; $i++)
         {
@@ -254,9 +254,26 @@ class UserController
 
         include('../app/views/contact.php');
     }
-    public function listLogements(){        
+    public function listLogements(){
+
         $builder = new RequestBuilder();
         $builder->setTable('Annonces');
+        $builder->addNaturalJoin('Logements');        
+        $totalLogements = $builder->find();
+        $nbLogements = count($totalLogements);
+        $perPage = 4;
+        $nbPage = ceil($nbLogements / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+        
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);
         $builder->addOrderBy('idLogement', false);
         $builder->addNaturalJoin('Logements');
         $builder->addNaturalJoin('Organisations');
@@ -274,6 +291,14 @@ class UserController
         $GLOBALS['view']['annonces'] = $builder->find();
 
         return include('../app/views/services_list.php');
+    }
+
+    public function pageIsValid($nbPage){
+        $pageActuelle = @$GLOBALS['url']['param']['page'];
+        if(is_numeric($pageActuelle) && $nbPage >= $pageActuelle && $pageActuelle > 0){
+            return $pageActuelle;
+        }
+        else return 1;
     }
     
 }
