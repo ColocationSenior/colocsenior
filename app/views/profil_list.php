@@ -136,7 +136,7 @@ include('includes/header.php') ?>
 
 
     </div>
-    <div class="container g-mt-28">
+    <div class="container g-mt-28 g-mb-28">
         <div id="bloc_page">
 
             <?php  if($page >= 2 && $page <= $GLOBALS['view']['nbPage'][$nbPage - 3]) { 
