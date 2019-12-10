@@ -219,6 +219,12 @@
       }
     },
     {
+      "route": "/annonces/list/{page}",
+      "title": "Annonces",
+      "controller": "UserController",
+      "method": "listAnnonces"
+    },
+    {
       "route": "/services/list",
       "title": "Services",
       "controller": "UserController",

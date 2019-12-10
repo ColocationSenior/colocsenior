@@ -227,8 +227,25 @@ class UserController
         return include('../app/views/profil_list.php');
     }
     public function listAnnonces(){
+
         $builder = new RequestBuilder();
         $builder->setTable('Annonces');
+        $builder->addNaturalJoin('Logements');        
+        $totalLogements = $builder->find();
+        $nbLogements = count($totalLogements);
+        $perPage = 4;
+        $nbPage = ceil($nbLogements / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);
         $builder->addOrderBy('idAnnonce', false);
         $builder->addNaturalJoin('Organisations');
         $GLOBALS['view']['annonces'] = $builder->find();
