@@ -359,6 +359,12 @@
       }
     },
     {
+      "route": "/articles/list/{page}",
+      "title": "Articles",
+      "controller": "UserController",
+      "method": "listArticles"
+    },
+    {
       "route": "/annonce/show/{idAnnonce}",
       "title": "Article",
       "controller": "ContentController",

@@ -259,14 +259,39 @@ class UserController
 
         return include('../app/views/services_list.php');
     }
-    public function listArticles(){       
+    public function listArticles(){
+        
         $builder = new RequestBuilder();
-        $builder->setTable('News');        
+        $builder->setTable('News');
+        $builder->addNaturalJoin('Organisations');        
+        $totalArticles = $builder->find();
+        $nbArticles = count($totalArticles);
+        $perPage = 8;
+        $nbPage = ceil($nbArticles / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('News');
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);  
         $builder->addOrderBy('idNew', false);        
         $builder->addNaturalJoin('Organisations');        
         $GLOBALS['view']['news'] = $builder->find();
 
         return include('../app/views/articles_list.php');
+    }
+
+    public function pageIsValid($nbPage){
+        $pageActuelle = @$GLOBALS['url']['param']['page'];
+        if(is_numeric($pageActuelle) && $nbPage >= $pageActuelle && $pageActuelle > 0){
+            return $pageActuelle;
+        }
+        else return 1;
     }
     
 }
