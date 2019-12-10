@@ -235,6 +235,12 @@
       }
     },
     {
+      "route": "/services/list/{page}",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "listServices"
+    },
+    {
       "route": "/profil/list",
       "title": "Profil",
       "controller": "UserController",

@@ -280,12 +280,29 @@ class UserController
         $GLOBALS['view']['annonces'] = $builder->find();
         return include('../app/views/logements_list.php');
     }
-    public function listServices(){       
+    public function listServices(){ 
+        
         $builder = new RequestBuilder();
-        $builder->setTable('Annonces');        
+        $builder->setTable('Annonces');
+        $builder->addNaturalJoin('Services');        
+        $totalServices = $builder->find();
+        $nbServices = count($totalServices);
+        $perPage = 6;
+        $nbPage = ceil($nbServices / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces'); 
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);       
         $builder->addOrderBy('idService', false);
         // $builder->addWhere('idService', '!=', null);
-        $builder->addLimit(0, 4);
+        // $builder->addLimit(0, 4);
         $builder->addNaturalJoin('Services');
         $builder->addNaturalJoin('Organisations');        
         $GLOBALS['view']['annonces'] = $builder->find();
