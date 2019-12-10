@@ -46,6 +46,7 @@ include('includes/header.php') ?>
     <div class="g-pa-20">
         <div class="row">
             <?php foreach($GLOBALS['view']['news'] as $new){ ?>
+            <!-- Article card -->
             <div class="col-xl-3 col-md-6 g-mb-30">
                 <div class="card g-brd-gray-light-v7 rounded">
                     <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
@@ -75,113 +76,104 @@ include('includes/header.php') ?>
                     </div>
                 </div>
             </div>
+            <!-- End article card -->
             <?php } ?>
         </div>
-        <div class="container g-mt-28">
-            <div id="bloc_page">
+    </div>
+    <!-- Pagination -->
+    <div class="container g-mt-28 g-mb-28">
+        <div id="bloc_page">
 
-                <?php  if($page >= 2 && $page <= $GLOBALS['view']['nbPage'][$nbPage - 3]) { 
+            <?php  if($page >= 2 && $page <= $GLOBALS['view']['nbPage'][$nbPage - 3]) { 
                         if ($page == 1) {?>
-                <a class="active"
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
-                <a class="disabled">...</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+            <a class="active" href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
+            <a class="disabled">...</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
 
-                <?php } else { ?>
+            <?php } else { ?>
 
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>"><?=$page-1?></a>
-                <a class="active" href=""><?=$page?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 2]?>"><?=$page + 2?></a>
-                <a class="disabled">...</a>
-                <a
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>"><?=$page-1?></a>
+            <a class="active" href=""><?=$page?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 2]?>"><?=$page + 2?></a>
+            <a class="disabled">...</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
 
-                <?php } ?>
+            <?php } ?>
 
 
-                <?php } elseif($page >= $GLOBALS['view']['nbPage'][$nbPage - 2] && $page < $GLOBALS['view']['nbPage'][$nbPage -1]) {  ?>
+            <?php } elseif($page >= $GLOBALS['view']['nbPage'][$nbPage - 2] && $page < $GLOBALS['view']['nbPage'][$nbPage -1]) {  ?>
 
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
-                <a class="disabled">...</a>
-                <a class="active" href=""><?=$page?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
-                <a
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+            <a class="disabled">...</a>
+            <a class="active" href=""><?=$page?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
-                <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage - 1] && $page < $GLOBALS['view']['nbPage'][$nbPage] && $page != 1) { 
+            <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage - 1] && $page < $GLOBALS['view']['nbPage'][$nbPage] && $page != 1) { 
                         if ($page == 2) {?>
 
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
-                <a class="active" href=""><?=$page?></a>
-                <a
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a class="active" href=""><?=$page?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
-                <?php } else { ?>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
-                <a class="disabled">...</a>
-                <a class="active" href=""><?=$page?></a>
-                <a
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+            <?php } else { ?>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+            <a class="disabled">...</a>
+            <a class="active" href=""><?=$page?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
 
-                <?php } ?>
+            <?php } ?>
 
-                <?php }elseif($page == 1 && $nbPage > 1 && $nbPage < 3){ ?>
+            <?php }elseif($page == 1 && $nbPage > 1 && $nbPage < 3){ ?>
 
-                <a class="active"
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+            <a class="active" href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
 
-                <?php }elseif($page == 1 && $nbPage > 1){ ?>
+            <?php }elseif($page == 1 && $nbPage > 1){ ?>
 
-                <a class="active"
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
-                <a class="disabled">...</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+            <a class="active" href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
+            <a class="disabled">...</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
 
-                <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage]) { 
+            <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage]) { 
                         if ($nbPage == 2) {?>
 
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
-                <a class="active"
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
+            <a class="active" href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
-                <?php } elseif($nbPage == 1){  ?>
-                <a class="active"
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+            <?php } elseif($nbPage == 1){  ?>
+            <a class="active" href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
 
-                <?php } else {  ?>
+            <?php } else {  ?>
 
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
-                <a class="disabled">...</a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 2]?>"><?=$page - 2?></a>
-                <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
-                <a class="active"
-                    href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+            <a class="disabled">...</a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 2]?>"><?=$page - 2?></a>
+            <a href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
+            <a class="active" href="/articles/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
 
-                <?php } ?>
-                <?php } ?>
-
-            </div>
+            <?php } ?>
+            <?php } ?>
         </div>
     </div>
+    <!-- End Pagination -->
 </div>
-
 
 <?php include('includes/footer.php') ?>
