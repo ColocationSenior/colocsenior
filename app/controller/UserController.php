@@ -199,7 +199,7 @@ class UserController
         $builder->setTable('Users');
         $totalUsers = $builder->find();
         $nbUsers = count($totalUsers);
-        $perPage = 20;
+        $perPage = 4;
         $nbPage = ceil($nbUsers / $perPage);
         $page = $this->pageIsValid($nbPage);
 
@@ -261,7 +261,7 @@ class UserController
         $builder->addNaturalJoin('Logements');        
         $totalLogements = $builder->find();
         $nbLogements = count($totalLogements);
-        $perPage = 20;
+        $perPage = 4;
         $nbPage = ceil($nbLogements / $perPage);
         $page = $this->pageIsValid($nbPage);
 
