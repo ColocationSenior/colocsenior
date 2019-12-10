@@ -259,5 +259,14 @@ class UserController
 
         return include('../app/views/services_list.php');
     }
+    public function listArticles(){       
+        $builder = new RequestBuilder();
+        $builder->setTable('News');        
+        $builder->addOrderBy('idNew', false);        
+        $builder->addNaturalJoin('Organisations');        
+        $GLOBALS['view']['news'] = $builder->find();
+
+        return include('../app/views/articles_list.php');
+    }
     
 }

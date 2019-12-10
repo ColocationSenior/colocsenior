@@ -160,7 +160,7 @@ include('includes/header.php') ?>
             </div>
             <?php } ?>
             <div class="col-12 g-mb-15">
-                <a class="d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="/article/list" data-src="#new-project-form" data-speed="350">
+                <a class="d-flex align-items-center justify-content-center u-link-v5 g-parent g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30" href="/articles/list" data-src="#new-project-form" data-speed="350">
                   <span class="text-center">
                   <span class="d-inline-block g-pos-rel g-width-50 g-height-50 g-font-size-default g-color-secondary g-brd-around g-brd-secondary rounded-circle g-mb-5">
                     <i class="hs-admin-zoom-in g-absolute-centered"></i>
