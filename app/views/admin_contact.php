@@ -108,7 +108,7 @@ include('includes/header.php') ?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex ml-auto">
+                            <div class="ml-auto">
                                     <button class="btn btn-link d-flex align-self-top align-items-top u-link-v5 g-color-secondary g-color-secondary--hover p-0 g-ml-15">
                                         <i class="hs-admin-arrow-top-right g-font-size-18 g-line-height-1_4"></i>
                                         <span class="g-hidden-sm-down g-font-weight-300 g-font-size-12 g-font-size-default--md g-ml-4 g-ml-8--md">
