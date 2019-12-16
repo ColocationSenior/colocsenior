@@ -28,7 +28,7 @@ include('includes/header.php') ?>
                             <a
                                 onclick="showMessageContact('<?=htmlspecialchars(addslashes($contact['nameContact']))?>','<?=$contact['emailContact']?>','<?=htmlspecialchars(addslashes($contact['subjectContact']))?>','<?=htmlspecialchars(json_encode(addslashes($contact['contentContact'])))?>')">
                                 <section
-                                    class="media justify-content-center g-bg-gray-light-v8--active g-brd-bottom--lg g-brd-top--lg g-brd-gray-light-v4 g-pa-25 g-pa-10--lg">
+                                    class="media justify-content-center g-bg-gray-light-v8--active g-brd-bottom--lg g-brd-top--lg g-brd-gray-light-v4 g-pa-25 g-pa-10--lg" style="cursor:pointer">
                                     <!-- Contact List Item: Avatar -->
                                     <div class="d-flex g-mr-20--lg">
                                         <span class="d-inline-block g-pos-rel">
@@ -153,9 +153,7 @@ include('includes/header.php') ?>
             document.getElementById("message").innerHTML = content;
             document.getElementById("response").innerHTML = name;
             document.getElementById("email").href = "mailto:"+ email;
-            document.getElementById("respondTo").class.display = "block";
-
-        }
+            document.getElementById("respondTo").class.display = "block";        }
     </script>
 
     <?php include('includes/footer.php') ?>
