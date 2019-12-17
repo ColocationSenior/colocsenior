@@ -194,8 +194,24 @@ class UserController
         return include('../app/views/friends_list.php');
     }
     public function listProfil(){
+        
         $builder = new RequestBuilder();
         $builder->setTable('Users');
+        $totalUsers = $builder->find();
+        $nbUsers = count($totalUsers);
+        $perPage = 4;
+        $nbPage = ceil($nbUsers / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addLimit((($page - 1)  * $perPage), $perPage);
         $builder->addOrderBy('updatedUser', false);
         $builder->addWhere('idUser', '!=', $_SESSION['user']['idUser']);
 
@@ -211,8 +227,25 @@ class UserController
         return include('../app/views/profil_list.php');
     }
     public function listAnnonces(){
+
         $builder = new RequestBuilder();
         $builder->setTable('Annonces');
+        $builder->addNaturalJoin('Logements');        
+        $totalLogements = $builder->find();
+        $nbLogements = count($totalLogements);
+        $perPage = 4;
+        $nbPage = ceil($nbLogements / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);
         $builder->addOrderBy('idAnnonce', false);
         $builder->addNaturalJoin('Organisations');
         $GLOBALS['view']['annonces'] = $builder->find();
@@ -238,21 +271,55 @@ class UserController
 
         include('../app/views/contact.php');
     }
-    public function listLogements(){        
+    public function listLogements(){
+
         $builder = new RequestBuilder();
         $builder->setTable('Annonces');
+        $builder->addNaturalJoin('Logements');        
+        $totalLogements = $builder->find();
+        $nbLogements = count($totalLogements);
+        $perPage = 4;
+        $nbPage = ceil($nbLogements / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+        
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);
         $builder->addOrderBy('idLogement', false);
         $builder->addNaturalJoin('Logements');
         $builder->addNaturalJoin('Organisations');
         $GLOBALS['view']['annonces'] = $builder->find();
         return include('../app/views/logements_list.php');
     }
-    public function listServices(){       
+    public function listServices(){ 
+        
         $builder = new RequestBuilder();
-        $builder->setTable('Annonces');        
+        $builder->setTable('Annonces');
+        $builder->addNaturalJoin('Services');        
+        $totalServices = $builder->find();
+        $nbServices = count($totalServices);
+        $perPage = 6;
+        $nbPage = ceil($nbServices / $perPage);
+        $page = $this->pageIsValid($nbPage);
+
+        for($i = 1; $i <= $nbPage; $i++)
+        {
+            $GLOBALS['view']['nbPage'][$i] =  $i;                        
+        }
+        $GLOBALS['view']['nbPage'][$nbPage];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces'); 
+        $builder->addLimit(($page - 1)  * $perPage, $perPage);       
         $builder->addOrderBy('idService', false);
         // $builder->addWhere('idService', '!=', null);
-        $builder->addLimit(0, 4);
+        // $builder->addLimit(0, 4);
         $builder->addNaturalJoin('Services');
         $builder->addNaturalJoin('Organisations');        
         $GLOBALS['view']['annonces'] = $builder->find();

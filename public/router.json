@@ -197,6 +197,12 @@
       }
     },
     {
+      "route": "/profil/list/{page}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "listProfil"
+    },
+    {
       "route": "/annonces/list",
       "title": "Annonces",
       "controller": "UserController",
@@ -213,6 +219,12 @@
       }
     },
     {
+      "route": "/annonces/list/{page}",
+      "title": "Annonces",
+      "controller": "UserController",
+      "method": "listAnnonces"
+    },
+    {
       "route": "/services/list",
       "title": "Services",
       "controller": "UserController",
@@ -227,6 +239,12 @@
           }
         ]
       }
+    },
+    {
+      "route": "/services/list/{page}",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "listServices"
     },
     {
       "route": "/profil/list",
@@ -260,6 +278,12 @@
           }
         ]
       }
+    },
+    {
+      "route": "/logements/list/{page}",
+      "title": "Logements",
+      "controller": "UserController",
+      "method": "listLogements"
     },
     {
       "route": "/organisation/show/{idOrganisation}",

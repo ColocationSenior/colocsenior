@@ -1,6 +1,49 @@
 <?php
 $GLOBALS['view']['title'] = "Annonces";
 include('includes/header.php') ?>
+<style>
+    #bloc_page {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        text-align: center;
+
+    }
+
+    #bloc_page a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+    }
+
+    #bloc_page a.active {
+        background-color: #65CBE4;
+        color: white;
+        border: 1px solid #65CBE4;
+        cursor: not-allowed;
+    }
+
+    #bloc_page a:hover:not(.active) {
+        background-color: #ddd;
+    }
+
+    #bloc_page a:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    #bloc_page a:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .disabled {
+        cursor: not-allowed;
+    }
+</style>
 
 <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
     <div class="g-pa-20"><!--
@@ -66,6 +109,109 @@ include('includes/header.php') ?>
                 </div>
             </div>
             <?php } ?>
+        </div>
+        <div class="container g-mt-28">
+            <div id="bloc_page">
+
+                <?php  if($page >= 2 && $page <= $GLOBALS['view']['nbPage'][$nbPage - 3]) { 
+                        if ($page == 1) {?>
+                <a class="active"
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
+                <a class="disabled">...</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+
+                <?php } else { ?>
+
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>"><?=$page-1?></a>
+                <a class="active" href=""><?=$page?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page + 2]?>"><?=$page + 2?></a>
+                <a class="disabled">...</a>
+                <a
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+
+                <?php } ?>
+
+
+                <?php } elseif($page >= $GLOBALS['view']['nbPage'][$nbPage - 2] && $page < $GLOBALS['view']['nbPage'][$nbPage -1]) {  ?>
+
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+                <a class="disabled">...</a>
+                <a class="active" href=""><?=$page?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>"><?=$page + 1?></a>
+                <a
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+                <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage - 1] && $page < $GLOBALS['view']['nbPage'][$nbPage] && $page != 1) { 
+                        if ($page == 2) {?>
+
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+                <a class="active" href=""><?=$page?></a>
+                <a
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+                <?php } else { ?>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+                <a class="disabled">...</a>
+                <a class="active" href=""><?=$page?></a>
+                <a
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+
+                <?php } ?>
+
+                <?php }elseif($page == 1 && $nbPage > 1 && $nbPage < 3){ ?>
+
+                <a class="active"
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+
+                <?php }elseif($page == 1 && $nbPage > 1){ ?>
+
+                <a class="active"
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][2]?>"><?=$GLOBALS['view']['nbPage'][2]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][3]?>"><?=$GLOBALS['view']['nbPage'][3]?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][4]?>"><?=$GLOBALS['view']['nbPage'][4]?></a>
+                <a class="disabled">...</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page + 1]?>">&gt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>">&gt;&gt;</a>
+
+                <?php } elseif($page == $GLOBALS['view']['nbPage'][$nbPage]) { 
+                        if ($nbPage == 2) {?>
+
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
+                <a class="active"
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+                <?php } elseif($nbPage == 1){  ?>
+                <a class="active"
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>"><?=$GLOBALS['view']['nbPage'][1]?></a>
+
+                <?php } else {  ?>
+
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][1]?>">&lt;&lt;</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$page - 1]?>">&lt;</a>
+                <a class="disabled">...</a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 2]?>"><?=$page - 2?></a>
+                <a href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage - 1]?>"><?=$page - 1?></a>
+                <a class="active"
+                    href="/annonces/list/<?=$GLOBALS['view']['nbPage'][$nbPage]?>"><?=$GLOBALS['view']['nbPage'][$nbPage]?></a>
+
+                <?php } ?>
+                <?php } ?>
+
+            </div>
         </div>
 
 <?php include('includes/footer.php') ?>

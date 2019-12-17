@@ -1,6 +1,6 @@
 <?php
 // remove in prod
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 session_start();
 require('../app/model/RequestBuilder.php');
