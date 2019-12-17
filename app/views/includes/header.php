@@ -57,7 +57,7 @@
         <nav class="navbar no-gutters g-pa-0">
             <div class="col-auto d-flex flex-nowrap u-header-logo-toggler g-py-12">
                 <!-- Logo -->
-                <a href="index.html"
+                <a href="/"
                    class="navbar-brand d-flex align-self-center g-hidden-xs-down g-line-height-1 py-0 g-mt-5">
 
                     <img src="/assets/img/logo/logo-colocationseniors-beta-2.png" width="180px">
