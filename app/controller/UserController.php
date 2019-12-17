@@ -278,7 +278,7 @@ class UserController
         $builder->addNaturalJoin('Logements');        
         $totalLogements = $builder->find();
         $nbLogements = count($totalLogements);
-        $perPage = 4;
+        $perPage = 12;
         $nbPage = ceil($nbLogements / $perPage);
         $page = $this->pageIsValid($nbPage);
 
@@ -304,7 +304,7 @@ class UserController
         $builder->addNaturalJoin('Services');        
         $totalServices = $builder->find();
         $nbServices = count($totalServices);
-        $perPage = 6;
+        $perPage = 12;
         $nbPage = ceil($nbServices / $perPage);
         $page = $this->pageIsValid($nbPage);
 
@@ -333,7 +333,7 @@ class UserController
         $builder->addNaturalJoin('Organisations');        
         $totalArticles = $builder->find();
         $nbArticles = count($totalArticles);
-        $perPage = 8;
+        $perPage = 20;
         $nbPage = ceil($nbArticles / $perPage);
         $page = $this->pageIsValid($nbPage);
 
