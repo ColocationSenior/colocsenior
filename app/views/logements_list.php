@@ -94,7 +94,7 @@ include('includes/header.php') ?>
                     <div>
                         <a class="d-flex align-items-center u-link-v5 g-parent g-py-15"
                             style="display:flex;justify-content:center;"
-                            href="/annonce/show/<?=$annonce['idLogement']?>">
+                            href="/annonce/show/<?=$annonce['idAnnonce']?>">
                             <span
                                 class="g-font-size-18 g-color-gray-light-v6 g-color-primary--parent-hover g-color-primary--parent-active g-mr-5">
                                 <i class="hs-admin-arrow-circle-right"></i>
