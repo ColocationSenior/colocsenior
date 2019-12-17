@@ -29,5 +29,13 @@ class MainController
     public function showChat(){
         return include('../app/views/messages.php');
     }
+    public function showContact(){
+        $builder = new RequestBuilder();
+        $builder->setTable('Contacts');
+        $builder->addOrderBy('idContact');                 
+        $GLOBALS['view']['contacts'] = $builder->find();
+
+        return include('../app/views/admin_contact.php');
+    }
     
 }

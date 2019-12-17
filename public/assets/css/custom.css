@@ -1,6 +1,18 @@
 /* Add here all your css styles (customizations) */
 
 .card-header{
-    height: 90px;
+    height: 100px;
     padding: 15px !important;
+}
+.card-profil{
+    width: 315px;
+    height: 330px;
+}
+.card-profil header{
+    width: 315px;
+    height: 169px;
+}
+.card-profil .city{
+    width: 315px;
+    height: 67px;
 }
