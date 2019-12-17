@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <!--<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>-->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon.ico" >
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
     <!--===============================================================================================-->
+    
 </head>
 <body>
 
@@ -60,17 +61,16 @@
                     </button>
                 </div>
 
-                <div class="text-center p-t-12">
-                    <a class="txt2" href="#">
-                        Mot de passe oublié
-                    </a>
+                <div class="text-center p-t-22">
+                <button type="button" class="btn btn-default btn-block" style="margin:auto;border-radius: 25px; border-color: green ;padding: 0px 0px 0px 0px;width:170px"><a href="#">
+                       Mot de passe oublié 
+                    </a></button>
                 </div>
 
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="/signup">
-                        Créer votre compte
-                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
+                <div class="text-center p-t-20">
+                <button class="btn btn-default btn-block" style="margin:auto;border-radius: 25px; border-color: green; padding: 0px 0px 0px 0px;width:170px"><a href="/signup">
+                    Créer votre compte
+                    </a></button>
                 </div>
             </form>
         </div>
