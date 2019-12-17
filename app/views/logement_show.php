@@ -20,9 +20,9 @@ include('includes/header.php') ?>
         /* Hidden by default */
         position: fixed;
         /* Stay in place */
-        z-index: 1;
+        z-index: 99999;
         /* Sit on top */
-        padding-top: 100px;
+        padding : 5%;
         /* Location of the box */
         left: 0;
         top: 0;
@@ -42,9 +42,9 @@ include('includes/header.php') ?>
     .modal-content {
         margin: auto;
         display: block;
-        width: 1300px;
-        height: 800px;
-        
+        width: auto;
+        height: 100%;
+        z-index : 9998;        
     }
 
     /* Caption of Modal Image (Image Text) - Same Width as the Image */
@@ -85,6 +85,7 @@ include('includes/header.php') ?>
         font-size: 40px;
         font-weight: bold;
         transition: 0.3s;
+        z-index: 9999;
     }
 
     .close:hover,
@@ -95,41 +96,13 @@ include('includes/header.php') ?>
     }
 
     /* 100% Image Width on Smaller Screens */
-    @media only screen and (max-width: 1200px) {
-        .modal-content {
-            width: 100%;
-                    }
-                }
 
     @media only screen and (max-width: 900px) {
         .modal-content {
-            width: 80%;
-            height: 60%;
-            
+            width: 90%;
+            height: auto;
         }
-    }
-        @media only screen and (max-width: 600px) {
-        .modal-content {
-            width: 80%;
-            height: 40%;
-            
-        }
-    }
-        @media only screen and (max-width: 600px) {
-        .modal-content {
-            width: 70%;
-            height: 30%;
-            
-        }
-    }
-        @media only screen and (max-width: 360px) {
-        .modal-content {
-            width: 60%;
-            height: 40%;
-            
-        }
-    }
-    
+    }  
 
 </style>
 
