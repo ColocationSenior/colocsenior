@@ -14,10 +14,10 @@ include('includes/header.php') ?>
         </div>-->
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-500 g-font-size-24 g-color-black mb-0">Les dernières annonces</h1>
+                <h1 class="g-font-weight-500 g-font-size-30 g-color-black mb-0">Les dernières annonces</h1>
             </div>
         </div>
-        <hr class="d-flex g-brd-gray-light-v7 g-my-20">
+        <hr class="d-flex  g-my-20" style="border: 2px solid #375D81;border-radius: 2px;">
         <div class="row">
             <?php foreach($GLOBALS['view']['annonces'] as $annonce){ ?>
             <div class="col-xl-3 col-md-6 g-mb-30">
@@ -87,10 +87,10 @@ include('includes/header.php') ?>
 
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-500 g-font-size-24 g-color-black mb-0">Découvrez de nouvelles personnes</h1>
+                <h1 class="g-font-weight-500 g-font-size-30 g-color-black mb-0">Découvrez de nouvelles personnes</h1>
             </div>
         </div>
-        <hr class="d-flex g-brd-gray-light-v7 g-my-20">
+        <hr class="d-flex  g-my-20" style="border: 2px solid #375D81;border-radius: 2px;">
         <div class="row">
         <?php foreach($GLOBALS['view']['users'] as $user){ ?>
             <!-- User Card -->
@@ -129,10 +129,10 @@ include('includes/header.php') ?>
 
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-500 g-font-size-24 g-color-black mb-0">Les derniers articles</h1>
+                <h1 class="g-font-weight-500 g-font-size-30 g-color-black mb-0">Les derniers articles</h1>
             </div>
         </div>
-        <hr class="d-flex g-brd-gray-light-v7 g-my-20">
+        <hr class="d-flex  g-my-20" style="border: 2px solid #375D81;border-radius: 2px;">
         <div class="row">
             <?php foreach($GLOBALS['view']['news'] as $new){ ?>
             <div class="col-xl-3 col-md-6 g-mb-30">
