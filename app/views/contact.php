@@ -35,7 +35,7 @@
 				</span>
 
 				<div class="wrap-input1 validate-input" data-validate="Name is required">
-					<input class="input1" type="text" name="name" placeholder="Name">
+					<input class="input1" type="text" name="name" placeholder="Nom">
 					<span class="shadow-input1"></span>
 				</div>
 
@@ -45,7 +45,7 @@
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate="Subject is required">
-					<input class="input1" type="text" name="subject" placeholder="Subject">
+					<input class="input1" type="text" name="subject" placeholder="Objet">
 					<span class="shadow-input1"></span>
 				</div>
 
@@ -57,7 +57,7 @@
 				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn">
 						<span class="row align-items-center">
-							Send Email
+							Envoyer
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 						</span>
 					</button>
