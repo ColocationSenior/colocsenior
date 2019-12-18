@@ -242,7 +242,7 @@
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-home"></i>
                         </span>
-                        <span class="media-body align-self-center">Fil d'actualité</span>
+                        <span class="media-body align-self-center">Mon menu</span>
                     </a>
                 </li>
                 <!-- End fil d'actualite -->
@@ -254,7 +254,7 @@
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-announcement"></i>
                         </span>
-                        <span class="media-body align-self-center">Annonces</span>
+                        <span class="media-body align-self-center">Recherchez</span>
                         <span class="d-flex align-self-center u-side-nav--control-icon">
                           <i class="hs-admin-angle-right"></i>
                         </span>
@@ -268,7 +268,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-home"></i>
                                 </span>
-                                <span class="media-body align-self-center">Logements</span>
+                                <span class="media-body align-self-center">Logements/Chambres</span>
                             </a>
                         </li>
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
@@ -277,7 +277,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-comments-smiley"></i>
                                 </span>
-                                <span class="media-body align-self-center">Services</span>
+                                <span class="media-body align-self-center">Aides/Services</span>
                             </a>
                         </li>
                     </ul>
@@ -315,7 +315,7 @@
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-themify-favicon"></i>
                         </span>
-                        <span class="media-body align-self-center">Contacts</span>
+                        <span class="media-body align-self-center">Mes Contacts</span>
                         <span class="d-flex align-self-center u-side-nav--control-icon">
                           <i class="hs-admin-angle-right"></i>
                         </span>
@@ -329,7 +329,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-user"></i>
                                 </span>
-                                <span class="media-body align-self-center">Mes amis</span>
+                                <span class="media-body align-self-center">Mes Amis</span>
                             </a>
                         </li>
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
@@ -347,7 +347,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-zoom-in"></i>
                                 </span>
-                                <span class="media-body align-self-center">Support</span>
+                                <span class="media-body align-self-center">Nous Contacter</span>
                             </a>
                         </li>
                     </ul>
@@ -361,7 +361,7 @@
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-rocket"></i>
                         </span>
-                        <span class="media-body align-self-center">Être adhérent</span>
+                        <span class="media-body align-self-center">Devenir Adhérent</span>
                     </a>
                 </li>
                 <!-- End blog -->

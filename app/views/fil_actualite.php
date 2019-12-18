@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['view']['title'] = "Fil d'actualité";
+$GLOBALS['view']['title'] = "Mon menu";
 include('includes/header.php') ?>
 <style>
 
