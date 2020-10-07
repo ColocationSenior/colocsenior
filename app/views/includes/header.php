@@ -374,7 +374,7 @@
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-write"></i>
                         </span>
-                        <span class="media-body align-self-center">Publier</span>
+                        <span class="media-body align-self-center">Déposer une annonce</span>
                         <span class="d-flex align-self-center u-side-nav--control-icon">
                           <i class="hs-admin-angle-right"></i>
                         </span>
@@ -389,7 +389,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-book"></i>
                                 </span>
-                                <span class="media-body align-self-center">Un article</span>
+                                <span class="media-body align-self-center">Publier sur le Blog</span>
                             </a>
                         </li>
                         <?php } ?>
@@ -400,7 +400,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-comments-smiley"></i>
                                 </span>
-                                <span class="media-body align-self-center">Un service</span>
+                                <span class="media-body align-self-center">Aides/Services</span>
                             </a>
                         </li>
                         <?php } ?>
@@ -411,7 +411,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-home"></i>
                                 </span>
-                                <span class="media-body align-self-center">Un logement</span>
+                                <span class="media-body align-self-center">Logements/Chambres</span>
                             </a>
                         </li>
                         <?php } ?>
