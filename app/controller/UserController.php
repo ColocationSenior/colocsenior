@@ -153,6 +153,50 @@ class UserController
 
         return include('../app/views/profil_show.php');
     }
+    public function upgradeUser(){
+        $idUser = $GLOBALS['url']['param']['idUser'];
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere('idUser', '=', $idUser);
+        $userToUpgrade = $builder->findOne();
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addValues(array(
+            'levelUser' => ($userToUpgrade['levelUser'] + 1)
+        ));
+        $builder->addWhere('idUser', '=', $idUser);
+        $builder->update();
+        Ftools::redirection('/profil/show/'.$idUser);
+    }
+    public function downgradeUser(){
+        $idUser = $GLOBALS['url']['param']['idUser'];
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere('idUser', '=', $idUser);
+        $userToUpgrade = $builder->findOne();
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addValues(array(
+            'levelUser' => ($userToUpgrade['levelUser'] - 1)
+        ));
+        $builder->addWhere('idUser', '=', $idUser);
+        $builder->update();
+        Ftools::redirection('/profil/show/'.$idUser);
+    }
+    public function banUser(){
+        $idUser = $GLOBALS['url']['param']['idUser'];
+        $builder = new RequestBuilder();
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addValues(array(
+            'levelUser' => 0
+        ));
+        $builder->addWhere('idUser', '=', $idUser);
+        $builder->update();
+        Ftools::redirection('/profil/show/'.$idUser);
+    }
     public function addFriend(){
         $idUser = $GLOBALS['url']['param']['idUser'];
         $builder = new RequestBuilder();
@@ -359,6 +403,10 @@ class UserController
             return $pageActuelle;
         }
         else return 1;
+    }
+
+    public function showForgotPassword(){
+        return include('../app/views/forgot_password.php');
     }
     
 }

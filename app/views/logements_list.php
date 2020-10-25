@@ -65,14 +65,18 @@ include('includes/header.php') ?>
                     <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
                     <div class="card-block g-px-20 g-px-30--sm g-py-15 g-py-20--sm"
                         style="height:208px;overflow:hidden;background:url('/files/pictures/<?=$annonce['coverAnnonce']?>') center center;background-size:cover;">
-
+                        <?php if($annonce['isCertifiedAnnonce'] == "Non certifié"){ ?>
+                        <a href="/services/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-red g-color-white g-rounded-50 g-py-4 g-px-15"><?=$annonce['isCertifiedAnnonce']?></span></a>
+                        <?php } else{ ?>
+                        <a href="/services/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-lightblue-v3 g-color-white g-rounded-50 g-py-4 g-px-15"><?=$annonce['isCertifiedAnnonce']?></span></a>
+                        <?php } ?>
                     </div>
                     <section class="row no-gutters g-brd-top g-brd-gray-light-v4">
                         <div class="col-12 g-brd-left--md g-brd-gray-light-v4 g-py-10 g-py-10--md"
                             style="text-align:center;">
-                            <span class="g-font-weight-300 g-color-gray-dark-v6">Publié par</span>
+                            <span class="g-font-weight-300 g-color-gray-dark-v6">Type</span>
                             <strong
-                                class="d-block g-font-weight-500 g-font-size-16 g-color-black"><?=$annonce['nameOrganisation']?></strong>
+                                class="d-block g-font-weight-500 g-font-size-16 g-color-black">Échange logement temporaire</strong>
                         </div>
                     </section>
                     <section class="row no-gutters g-brd-top g-brd-gray-light-v4">

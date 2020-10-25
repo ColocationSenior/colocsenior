@@ -176,6 +176,7 @@
         alert('Comme vous le savez colocationseniors.fr est en construction. Cette fonctionnalité n\'est pas encore disponible mais le sera prochainement !');
     }
 </script>
+
 </body>
 
 </html>

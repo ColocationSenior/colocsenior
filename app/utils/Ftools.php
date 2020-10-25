@@ -69,4 +69,7 @@ class Ftools
         $request = "INSERT INTO Logs (requestLog) VALUES ('".$log."')";
         SPDO::getInstance()->getPDO()->query($request);
     }
+    public static function getDepartementList(){
+
+    }
 }

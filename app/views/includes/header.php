@@ -79,7 +79,21 @@
             <div style="display:flex;justify-content: start;" class="g-ml-20">
                 <img src="/assets/img/logo/colocsenior_solo.png" height="30px">
                 <h3 class="g-font-weight-400 g-font-size-20 g-ml-5"><?=$GLOBALS['view']['title']?></h3>
+                <?php
+                    if(isset($GLOBALS['view']['infoPopup'])){
+                ?>
+                <img src="/assets/img/information.png" height="20px" style="margin-left:20px;margin-top:5px;cursor:pointer;" onclick="infoPopup()">
+                <?php
+                }
+                ?>
             </div>
+
+
+            <script>
+                function infoPopup(){
+                    alert("<?=$GLOBALS['view']['infoPopup']?>");
+                }
+            </script>
 
             <!-- Top Search Bar -->
             <form id="searchMenu" class="u-header--search col-sm g-py-12 g-ml-15--sm g-ml-20--md g-mr-10--sm"
@@ -287,7 +301,7 @@
                 <!-- Blog -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#" onclick="wip()">
+                       href="/articles/list">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-book"></i>
                         </span>

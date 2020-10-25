@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['view']['title'] = "";
+$GLOBALS['view']['title'] = $GLOBALS['view']['service']['titleAnnonce'];
 include('includes/header.php') ?>
 
     <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">

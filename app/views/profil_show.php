@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['view']['title'] = "Mon profil";
+$GLOBALS['view']['title'] = "Profil";
 include('includes/header.php') ?>
 
     <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">

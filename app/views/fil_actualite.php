@@ -13,6 +13,11 @@ include('includes/header.php') ?>
             </div>
         </div>-->
         <div class="media">
+            <div class="d-flex align-self-center" style="text-align:center;">
+                <h1 class="g-font-weight-500 g-font-size-30 g-color-darkblue mb-0">Bienvenu sur VOTRE fil dactualité</h1>
+            </div>
+        </div>
+        <div class="media">
             <div class="d-flex align-self-center">
                 <h1 class="g-font-weight-500 g-font-size-30 g-color-darkblue mb-0">Les dernières annonces</h1>
             </div>

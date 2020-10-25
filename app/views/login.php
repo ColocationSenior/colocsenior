@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="text-center p-t-22">
-                <button type="button" class="btn btn-default btn-block" style="margin:auto;border-radius: 25px; border-color: green ;padding: 0px 0px 0px 0px;width:170px"><a href="#">
+                <button type="button" class="btn btn-default btn-block" style="margin:auto;border-radius: 25px; border-color: green ;padding: 0px 0px 0px 0px;width:170px"><a href="/forgot-password">
                        Mot de passe oublié 
                     </a></button>
                 </div>

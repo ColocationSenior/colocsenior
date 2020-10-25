@@ -1,5 +1,6 @@
 <?php
 $GLOBALS['view']['title'] = "Services";
+$GLOBALS['view']['infoPopup'] = "Services";
 include('includes/header.php') ?>
 
 <style>

@@ -13,7 +13,7 @@ include('includes/header.php') ?>
                             </header>
 
                             <div class="form-group g-mb-30 g-mt-30">
-                                <label class="g-mb-10" for="inputGroup-1_1">Titre de l'annonce</label>
+                                <label class="g-mb-10" for="inputGroup-1_1">Titre de votre annonce</label>
 
                                 <div class="g-pos-rel">
                                     <span class="g-pos-abs g-top-0 g-right-0 d-block g-width-40 h-100 opacity-0 g-opacity-1--success">
@@ -77,7 +77,7 @@ include('includes/header.php') ?>
                             </div><br>
 
                             <div class="form-group">
-                                <h4 class="h6 g-font-weight-400 g-color-black g-mb-20">Description de l'annonce</h4>
+                                <h4 class="h6 g-font-weight-400 g-color-black g-mb-20">Description de votre annonce</h4>
 
                                 <div class="js-text-editor" data-height="350" data-placeholder="Écrivez ici"></div>
                             </div>

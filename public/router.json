@@ -164,6 +164,54 @@
       }
     },
     {
+      "route": "/profil/upgrade/{idUser}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "upgradeUser",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/downgrade/{idUser}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "downgradeUser",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/profil/ban/{idUser}",
+      "title": "Profil",
+      "controller": "UserController",
+      "method": "banUser",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/friends/list",
       "title": "Profil",
       "controller": "UserController",
@@ -492,6 +540,12 @@
       "controller": "UserController",
       "method": "contact"
       
+    },
+    {
+      "route": "/forgot-password",
+      "title": "Mot de passe oublié",
+      "controller": "UserController",
+      "method": "showForgotPassword"
     },
     {
       "route": "/contact/post",
