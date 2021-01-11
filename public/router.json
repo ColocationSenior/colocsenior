@@ -289,6 +289,23 @@
       }
     },
     {
+      "route": "/services/list",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "listServices",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/services/list/{page}",
       "title": "Services",
       "controller": "UserController",
@@ -315,7 +332,24 @@
       "route": "/logements/list",
       "title": "Logements",
       "controller": "UserController",
-      "method": "listLogements",  
+      "method": "listLogements",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/logements/list",
+      "title": "Logements",
+      "controller": "UserController",
+      "method": "listLogements",
       "middleware": {
         "UserManager": [
           {
@@ -352,8 +386,8 @@
     {
       "route": "/logement/create",
       "title": "Organisation",
-      "controller": "PublicationController",
-      "method": "showOrganisation",
+      "controller": "ContentController",
+      "method": "showLogementForm",
       "middleware": {
         "UserManager": [
           {

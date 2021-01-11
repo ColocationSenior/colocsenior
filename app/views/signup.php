@@ -62,6 +62,14 @@
 						</span>
                 </div>
 
+                <div class="wrap-input100 validate-input" data-validate = "Un mot de passe est requis">
+                    <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+                </div>
+
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
                         S'inscrire

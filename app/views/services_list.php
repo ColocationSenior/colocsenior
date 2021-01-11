@@ -48,7 +48,45 @@ include('includes/header.php') ?>
 </style>
 
 <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
-    <div class="g-pa-20">        
+    <div class="g-pa-20">
+        <form method="post" action="/services/list">
+            <div class="media flex-wrap g-mb-30">
+
+                <div class="d-flex align-self-center align-items-center g-ml-10 g-ml-20--md g-ml-40--lg">
+                    <div class="input-group g-pos-rel g-max-width-380 float-right">
+                        <input
+                            class="form-control h-100 g-font-size-default g-brd-gray-light-v7 g-brd-lightblue-v3--focus g-rounded-20 g-pl-20 g-pr-50 g-py-10"
+                            name="search" type="text" placeholder="Chercher par Nom">
+                    </div>
+                </div>
+                <div class="d-flex align-self-center align-items-center g-ml-10 g-ml-20--md g-ml-40--lg">
+                    <span class="g-hidden-sm-down g-color-gray-dark-v6 g-mr-12">Département :</span>
+
+                    <div class="u-select--v1 g-pr-20">
+                        <select class="js-select u-select--v1-select w-100" name="departement" style="display: none;">
+                            <option value="">Tous</option>
+                            <?php foreach($GLOBALS['view']['departements'] as $departement){ ?>
+                                <option value="<?=$departement['idDepartement']?>"><?=$departement['codeDepartement']?> - <?=$departement['nomDepartement']?></option>
+                            <?php } ?>
+                        </select>
+                        <i
+                            class="hs-admin-angle-down g-absolute-centered--y g-right-0 g-color-gray-light-v6 ml-auto"></i>
+                    </div>
+                </div>
+
+                <div class="d-flex g-hidden-md-up w-100"></div>
+
+                <div class="media-body align-self-center g-mt-10 g-mt-0--md">
+                    <div class="g-pos-rel g-max-width-380 float-right g-mr-40">
+                        <button
+                            class="btn btn-md btn-large--md u-btn-secondary g-width-160--md g-font-size-12 g-font-size-default--md g-mt-10"
+                            type="submit"><i class="hs-admin-search"></i> Filtrer</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="g-pa-20">
         <div class="row">
         <?php foreach($GLOBALS['view']['annonces'] as $annonce){ ?>
             <div class="col-xl-3 col-md-6 g-mb-30">

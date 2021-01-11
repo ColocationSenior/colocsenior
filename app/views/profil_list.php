@@ -96,6 +96,20 @@ include('includes/header.php') ?>
                             class="hs-admin-angle-down g-absolute-centered--y g-right-0 g-color-gray-light-v6 ml-auto"></i>
                     </div>
                 </div>
+                <div class="d-flex align-self-center align-items-center g-ml-10 g-ml-20--md g-ml-40--lg">
+                    <span class="g-hidden-sm-down g-color-gray-dark-v6 g-mr-12">Département :</span>
+
+                    <div class="u-select--v1 g-pr-20">
+                        <select class="js-select u-select--v1-select w-100" name="departement" style="display: none;">
+                            <option value="">Tous</option>
+                            <?php foreach($GLOBALS['view']['departements'] as $departement){ ?>
+                                <option value="<?=$departement['idDepartement']?>"><?=$departement['codeDepartement']?> - <?=$departement['nomDepartement']?></option>
+                            <?php } ?>
+                        </select>
+                        <i
+                            class="hs-admin-angle-down g-absolute-centered--y g-right-0 g-color-gray-light-v6 ml-auto"></i>
+                    </div>
+                </div>
 
                 <div class="d-flex g-hidden-md-up w-100"></div>
 

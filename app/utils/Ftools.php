@@ -70,6 +70,7 @@ class Ftools
         SPDO::getInstance()->getPDO()->query($request);
     }
     public static function getDepartementList(){
-
+        $request = "SELECT * FROM departement";
+        return SPDO::getInstance()->getPDO()->query($request)->fetchAll();
     }
 }

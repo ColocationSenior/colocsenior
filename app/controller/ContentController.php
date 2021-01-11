@@ -46,4 +46,7 @@ class ContentController
             return include('../app/views/logement_show.php');
         }
     }
+    public function showLogementForm(){
+        return include('../app/views/annonce_form.php');
+    }
 }

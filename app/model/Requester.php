@@ -73,7 +73,7 @@ class Requester
         $req = $this->bdd->prepare($request);
         $req->execute($this->bindTab);
 
-        //Ftools::writeLogFile('/log/request.txt', $request);
+        Ftools::writeLogFile('/log/request.txt', $request);
 
         if($return) return $req->fetchAll(PDO::FETCH_ASSOC);
         else return $this->bindTab;

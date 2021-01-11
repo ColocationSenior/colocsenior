@@ -18,6 +18,10 @@ class UserController
         }
     }
     public function signup(){
+        $builder = new RequestBuilder();
+        $builder->setTable('departement');
+        $GLOBALS['depart'] = $builder->find();
+
         return include('../app/views/signup.php');
     }
     public function cgu(){
@@ -262,11 +266,16 @@ class UserController
         if(@strlen($_POST['gender']) > 0) {
             $builder->addWhere('genderUser', '=', $_POST['gender'], 'AND');
         }
-        if(@isset($_POST['search'])) {
+        if(@strlen($_POST['departement']) > 0) {
+             $builder->addWhere('idDepartement', '=', $_POST['departement'], 'AND');
+         }
+        if(@strlen($_POST['search']) > 1) {
             $builder->addWhere('firstNameUser', '=', $_POST['search'], 'AND');
         }
 
         $GLOBALS['view']['users'] = $builder->find();
+
+        $GLOBALS['view']['departements'] = Ftools::getDepartementList();
 
         return include('../app/views/profil_list.php');
     }
@@ -319,7 +328,7 @@ class UserController
 
         $builder = new RequestBuilder();
         $builder->setTable('Annonces');
-        $builder->addNaturalJoin('Logements');        
+        $builder->addNaturalJoin('Logements');
         $totalLogements = $builder->find();
         $nbLogements = count($totalLogements);
         $perPage = 12;
@@ -337,8 +346,22 @@ class UserController
         $builder->addLimit(($page - 1)  * $perPage, $perPage);
         $builder->addOrderBy('idLogement', false);
         $builder->addNaturalJoin('Logements');
+
+        if(@strlen($_POST['departement']) > 0) {
+             $builder->addWhere('idDepartement', '=', $_POST['departement']);
+         }
+        if(@strlen($_POST['search']) > 1 && @strlen($_POST['departement']) > 0) {
+            $builder->addWhere('titleAnnonce', '=', $_POST['search'], 'AND');
+        }
+        else if(@strlen($_POST['search']) > 1) {
+            $builder->addWhere('titleAnnonce', '=', $_POST['search']);
+        }
+
         $builder->addNaturalJoin('Organisations');
         $GLOBALS['view']['annonces'] = $builder->find();
+
+        $GLOBALS['view']['departements'] = Ftools::getDepartementList();
+
         return include('../app/views/logements_list.php');
     }
     public function listServices(){ 
@@ -366,7 +389,19 @@ class UserController
         // $builder->addLimit(0, 4);
         $builder->addNaturalJoin('Services');
         $builder->addNaturalJoin('Organisations');        
+
+        if(@strlen($_POST['departement']) > 0) {
+             $builder->addWhere('idDepartement', '=', $_POST['departement']);
+         }
+        if(@strlen($_POST['search']) > 1 && @strlen($_POST['departement']) > 0) {
+            $builder->addWhere('titleAnnonce', '=', $_POST['search'], 'AND');
+        }
+        else if(@strlen($_POST['search']) > 1) {
+            $builder->addWhere('titleAnnonce', '=', $_POST['search']);
+        }
+
         $GLOBALS['view']['annonces'] = $builder->find();
+        $GLOBALS['view']['departements'] = Ftools::getDepartementList();
 
         return include('../app/views/services_list.php');
     }
