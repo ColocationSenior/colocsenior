@@ -8,10 +8,10 @@ stages:
   before_script:
     - docker login -u gitlab-ci-token -p $REGISTRY_PASSWORD registry.gitlab.com
     - docker info | grep Registry
-    - apk add --no-cache python py-pip git curl
+    - apk add --update --no-cache build-base python3-dev python3 libffi-dev libressl-dev git gettext curl
+    - curl -O https://bootstrap.pypa.io/get-pip.py
+    - python3 get-pip.py
     - pip install python-magic
-    - apk --purge del py-pip
-
 
 release-image-and-deploy:
   <<: *release_definition
