@@ -1,11 +1,11 @@
 {"global": {
   "database": {
     "engine": "mysql",
-    "path": "delia.ovh:3307",
-    "name": "colocsenior_prod",
+    "path": "delia-solutions.com:3310",
+    "name": "production",
     "charset": "utf8",
-    "user": "colocsenior",
-    "password": "p@ssw0rd"
+    "user": "admin",
+    "password": "wK65GuQsxGwD"
   }
 }
 }
