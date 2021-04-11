@@ -19,7 +19,6 @@ release-image-and-deploy:
   script:
     - docker build -t registry.gitlab.com/delia-inc/colocation-senior .
     - docker push registry.gitlab.com/delia-inc/colocation-senior
-    - curl -X POST https://portainer.delia.ovh/api/webhooks/5183ef35-84a8-44d8-bc72-8cfb9be2ac04
   only:
     - master
   when: manual
