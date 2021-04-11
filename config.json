@@ -1,7 +1,7 @@
 {"global": {
   "database": {
     "engine": "mysql",
-    "path": "delia-solutions.com:3310",
+    "path": "colocation-senior.delia-solutions.com:3310",
     "name": "production",
     "charset": "utf8",
     "user": "admin",
