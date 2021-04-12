@@ -89,14 +89,13 @@ include('includes/header.php') ?>
 			<div class="error-text">
 
 				<img src="../assets/img/Oops.png" alt="">
-				<h2>404 - Page not found</h2>
+				<h2>404 - Page introuvable</h2>
 
 
 				<p>
-					The page you are looking for might have been removed <br> had its name changed or is temporarily
-					unavailable.
+					La page que vous recherchez n'est pas accessible<br> Si le problème ce représente n'hésitez pas à nous contacter.
 				</p>
-				<a href="/" style="color:white">Go To Homepage</a>
+				<a href="/" style="color:white">Allez à la page d'accueil</a>
 
 			</div>
 

@@ -273,6 +273,40 @@
       "method": "listAnnonces"
     },
     {
+      "route": "/service/create",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "createService",
+      "request": "GET",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 2,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/service/post",
+      "title": "Services",
+      "controller": "UserController",
+      "method": "postService",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 2,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/services/list",
       "title": "Services",
       "controller": "UserController",
@@ -426,7 +460,41 @@
           {
             "attr": "levelUser",
             "operator": ">=",
-            "value": 1,
+            "value": 2,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/annonce/post",
+      "title": "Article",
+      "controller": "ContentController",
+      "method": "postAnnonce",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 2,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/service/post",
+      "title": "Service",
+      "controller": "ContentController",
+      "method": "postService",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 2,
             "error": "/login"
           }
         ]

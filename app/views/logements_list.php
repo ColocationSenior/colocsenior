@@ -103,7 +103,7 @@ include('includes/header.php') ?>
                     <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
                     <div class="card-block g-px-20 g-px-30--sm g-py-15 g-py-20--sm"
                         style="height:208px;overflow:hidden;background:url('/files/pictures/<?=$annonce['coverAnnonce']?>') center center;background-size:cover;">
-                        <?php if($annonce['isCertifiedAnnonce'] == "Non certifié"){ ?>
+                        <?php if($annonce['isCertifiedAnnonce'] == "Non certifiée"){ ?>
                         <a href="/services/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-red g-color-white g-rounded-50 g-py-4 g-px-15"><?=$annonce['isCertifiedAnnonce']?></span></a>
                         <?php } else{ ?>
                         <a href="/services/list"><span class="u-tags-v1 text-center g-width-130 g-brd-around g-bg-lightblue-v3 g-color-white g-rounded-50 g-py-4 g-px-15"><?=$annonce['isCertifiedAnnonce']?></span></a>

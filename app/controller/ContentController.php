@@ -1,13 +1,119 @@
 <?php
 
-
 class ContentController
 {
     public function articleForm(){
         return include('../app/views/article_form.php');
     }
     public function postArticle(){
-        //
+        if(
+            @isset($_POST['title']) &&
+            @isset($_POST['content'])
+        ){
+            $builder = new RequestBuilder();
+            $builder->setTable('Organisations');
+            $builder->addWhere('idUser', '=', $_SESSION['user']['idUser']);
+            $organisation = $builder->findOne();
+
+            $filename = Ftools::uploadPicture($_FILES['cover']);
+
+            $builder = new RequestBuilder();
+            $builder->setTable('News');
+            $builder->addValues(array(
+                "titleNew" => $_POST['title'],
+                "contentNew" => $_POST['content'],
+                "coverNew" => $filename,
+                "idOrganisation" => $organisation['idOrganisation']
+            ));
+            $builder->create();
+        }
+        Ftools::redirection('/article/list');
+    }
+    public function postService(){
+    if(
+        @isset($_POST['titre']) &&
+        @isset($_POST['content'])
+    ){
+        $filename = Ftools::uploadPicture($_FILES['couverture']);
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Services');
+        $builder->addValues(array(
+            "contentService" => $_POST['content'],
+            "coverService" => $filename
+        ));
+        $builder->create();
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Services');
+        $builder->addWhere('contentService', '=', $_POST['content']);
+        $builder->addOrderBy('idService', false);
+        $lastId = $builder->findOne()['idService'];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Organisations');
+        $builder->addWhere('idUser', '=', $_SESSION['user']['idUser']);
+        $organisation = $builder->findOne();
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Annonces');
+        $builder->addValues(array(
+            "titleAnnonce" => $_POST['titre'],
+            "coverAnnonce" => $filename,
+            "cityAnnonce" => $_POST['city'],
+            "idOrganisation" => $organisation['idOrganisation'],
+            "departementAnnonce" => $organisation['departementOrganisation'],
+            'idService' => $lastId
+        ));
+        $builder->create();
+    }
+    Ftools::redirection('/services/list');
+}
+    public function postAnnonce(){
+        if(
+            @isset($_POST['titre']) &&
+            @isset($_POST['content'])
+        ){
+            $one = Ftools::uploadPicture($_FILES['pic1']);
+            $two = Ftools::uploadPicture($_FILES['pic2']);
+            $three = Ftools::uploadPicture($_FILES['pic3']);
+            $four = Ftools::uploadPicture($_FILES['pic4']);
+
+            $builder = new RequestBuilder();
+            $builder->setTable('Logements');
+            $builder->addValues(array(
+                "contentLogement" => $_POST['content'],
+                "firstPictureLogement" => $one,
+                "secondPictureLogement" => $two,
+                "thirdPictureLogement" => $three,
+                "fourthPictureLogement" => $four
+            ));
+            $builder->create();
+
+            $builder = new RequestBuilder();
+            $builder->setTable('Logements');
+            $builder->addWhere('contentLogement', '=', $_POST['content']);
+            $builder->addOrderBy('idLogement', false);
+            $lastId = $builder->findOne()['idLogement'];
+
+            $builder = new RequestBuilder();
+            $builder->setTable('Organisations');
+            $builder->addWhere('idUser', '=', $_SESSION['user']['idUser']);
+            $organisation = $builder->findOne();
+
+            $builder = new RequestBuilder();
+            $builder->setTable('Annonces');
+            $builder->addValues(array(
+                "titleAnnonce" => $_POST['titre'],
+                "coverAnnonce" => $one,
+                "cityAnnonce" => $_POST['city'],
+                "idOrganisation" => $organisation['idOrganisation'],
+                "departementAnnonce" => $organisation['departementOrganisation'],
+                'idLogement' => $lastId
+            ));
+            $builder->create();
+        }
+        Ftools::redirection('/logements/list');
     }
     public function showArticle(){
         $idNew = $GLOBALS['url']['param']['idNew'];

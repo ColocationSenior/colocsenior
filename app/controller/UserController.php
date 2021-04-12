@@ -1,5 +1,6 @@
 <?php
 
+include("php-mailjet-v3-simple.class.php");
 
 class UserController
 {
@@ -323,6 +324,9 @@ class UserController
         }
 
         include('../app/views/contact.php');
+    }
+    public function createService(){
+        return include('../app/views/service_form.php');
     }
     public function listLogements(){
 

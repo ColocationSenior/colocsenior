@@ -2,9 +2,9 @@
   "database": {
     "engine": "mysql",
     "path": "colocation-senior.delia-solutions.com:3310",
-    "name": "production",
+    "name": "colocsenior_prod",
     "charset": "utf8",
-    "user": "admin",
+    "user": "root",
     "password": "wK65GuQsxGwD"
   }
 }

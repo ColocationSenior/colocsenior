@@ -66,8 +66,8 @@ class Ftools
         else return false;
     }
     public static function writeLogFile($filePath, $log){
-        $request = "INSERT INTO Logs (requestLog) VALUES ('".$log."')";
-        SPDO::getInstance()->getPDO()->query($request);
+        //$request = "INSERT INTO Logs (requestLog) VALUES ('".$log."')";
+        //SPDO::getInstance()->getPDO()->query($request);
     }
     public static function getDepartementList(){
         $request = "SELECT * FROM departement";
