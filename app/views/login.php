@@ -36,7 +36,7 @@
 
             <form class="login100-form validate-form" action="/login/post" method="post">
 					<span class="login100-form-title">
-						Connexion
+						Connexions
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
