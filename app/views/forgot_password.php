@@ -33,13 +33,17 @@
                 <img src="/assets/img/welcome.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form">
+            <form class="login100-form validate-form" id="forgot-form" method="post" action="/post-reset-password">
 					<span class="login100-form-title">
 						Réinitialiser votre mot de passe
 					</span>
 
+                <?php if(strlen($GLOBALS['view']['notif']['error']) > 0){ ?>
+                    <span style="color:red;">Veuillez saisir deux mots de passe identiques</span>
+                <?php } ?>
+
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="password" name="email" placeholder="Nouveau mot de passe">
+                    <input class="input100" type="password" name="pass1" placeholder="Nouveau mot de passe">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -47,18 +51,22 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Retapez">
+                    <input class="input100" type="password" name="pass2" placeholder="Retapez">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
                 </div>
 
+                <input type="hidden" name="id" value="<?=$GLOBALS['view']['user']['idUser']?>">
+                <input type="hidden" name="token" value="<?=$GLOBALS['url']['param']['token']?>">
+
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
                         Réinitialiser
                     </button>
                 </div>
+
 
                 <div class="text-center p-t-136">
                     <a class="txt2" href="/login">

@@ -47,12 +47,18 @@ class UserManager
         self::$builder->addWhere('passwordUser', "=", self::hashMdp($password), 'AND');
         $result = self::$builder->findOne();
         if(@!empty($result)){
-            foreach ($result as $index => $value){
-                $_SESSION['user'][$index] = $value;
+            if($result['isConfirmedUser'] == 1){
+                foreach ($result as $index => $value){
+                    $_SESSION['user'][$index] = $value;
+                }
+                self::$levelUser = $_SESSION['user']['levelUser'];
+                self::$idUser = $_SESSION['user']['idUser'];
+                return true;
             }
-            self::$levelUser = $_SESSION['user']['levelUser'];
-            self::$idUser = $_SESSION['user']['idUser'];
-            return true;
+            else{
+                $GLOBALS['view']['notif']['activateAccount'] = 0;
+                return false;
+            }
         }
         else return false;
     }

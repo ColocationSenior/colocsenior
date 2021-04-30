@@ -650,12 +650,61 @@
       "method": "showForgotPassword"
     },
     {
+      "route": "/forgot-password/{token}",
+      "title": "Mot de passe oublié",
+      "controller": "UserController",
+      "method": "showResetPassword"
+    },
+    {
+      "route": "/activate-account/{token}",
+      "title": "Compte activé",
+      "controller": "UserController",
+      "method": "activeAccount"
+    },
+    {
+      "route": "/dl-users",
+      "title": "Compte activé",
+      "controller": "MainController",
+      "method": "csvUsers"
+    },
+    {
+      "route": "/dl-logements",
+      "title": "Compte activé",
+      "controller": "MainController",
+      "method": "csvLogements"
+    },
+    {
+      "route": "/dl-services",
+      "title": "Compte activé",
+      "controller": "MainController",
+      "method": "csvServices"
+    },
+    {
+      "route": "/dl-news",
+      "title": "Compte activé",
+      "controller": "MainController",
+      "method": "csvNews"
+    },
+    {
       "route": "/contact/post",
       "title": "Contact the support",
       "controller": "UserController",
       "method": "contactPost",
       "request": "POST"
-      
+    },
+    {
+      "route": "/post-email-password",
+      "title": "Contact the support",
+      "controller": "UserController",
+      "method": "postEmailPassword",
+      "request": "POST"
+    },
+    {
+      "route": "/post-reset-password",
+      "title": "Reset password",
+      "controller": "UserController",
+      "method": "postResetPassword",
+      "request": "POST"
     }
   ]
 }

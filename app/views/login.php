@@ -36,7 +36,7 @@
 
             <form class="login100-form validate-form" action="/login/post" method="post">
 					<span class="login100-form-title">
-						Connexions
+						Connexion
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -121,6 +121,42 @@
         Swal.fire(
             'Inscription effectuée!',
             'Votre inscription a été enregistrée. Pour continuer veuillez cliquer sur le lien présent dans votre boite email!',
+            'success'
+        )
+    </script>
+<?php } ?>
+<?php if(@$GLOBALS['view']['notif']['activateAccount'] == 1){ ?>
+    <script>
+        Swal.fire(
+            'Adresse email vérifiée !',
+            'Votre adresse email a bien été vérifiée. Vous pouvez désormais vous connecter !',
+            'success'
+        )
+    </script>
+<?php } ?>
+<?php if(@$GLOBALS['view']['notif']['activateAccount'] == 0){ ?>
+    <script>
+        Swal.fire(
+            'Veuillez vérifier votre adresse email',
+            'Adresse email non vérifiée. Veuillez cliquer sur le lien reçu par email pour activer votre compte.',
+            'error'
+        )
+    </script>
+<?php } ?>
+<?php if(strlen($GLOBALS['view']['notif']['errorAccount']) > 0){ ?>
+    <script>
+        Swal.fire(
+            'Une erreur est survenue',
+            '<?=$GLOBALS['view']['notif']['errorAccount']?>',
+            'error'
+        )
+    </script>
+<?php } ?>
+<?php if(strlen($GLOBALS['view']['notif']['success']) > 0){ ?>
+    <script>
+        Swal.fire(
+            'Super !',
+            '<?=$GLOBALS['view']['notif']['success']?>',
             'success'
         )
     </script>

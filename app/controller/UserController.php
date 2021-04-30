@@ -1,6 +1,6 @@
 <?php
 
-include("php-mailjet-v3-simple.class.php");
+include("../app/utils/public_php-mailjet-v3-simple.class.php");
 
 class UserController
 {
@@ -46,6 +46,8 @@ class UserController
                 $number    = preg_match('@[0-9]@', $_POST['password']);
                 $special   = preg_match('@[\!\@\#\$\%\^\&\*]@', $_POST['password']);
 
+                $token = Ftools::randomString();
+
                 if(!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8) {
                     return require('../app/views/signup.php');
                 }else{
@@ -54,7 +56,8 @@ class UserController
                     $builder->addValues(array(
                         "emailUser" => $_POST['email'],
                         "firstNameUser" => $_POST['prenom'],
-                        "passwordUser" => $password
+                        "passwordUser" => $password,
+                        "tokenUser" => $token
                     ));
                     $builder->create();
                     $GLOBALS['view']['notif']['signup'] = 1;
@@ -268,7 +271,7 @@ class UserController
             $builder->addWhere('genderUser', '=', $_POST['gender'], 'AND');
         }
         if(@strlen($_POST['departement']) > 0) {
-             $builder->addWhere('idDepartement', '=', $_POST['departement'], 'AND');
+             $builder->addWhere('departementUser', '=', $_POST['departement'], 'AND');
          }
         if(@strlen($_POST['search']) > 1) {
             $builder->addWhere('firstNameUser', '=', $_POST['search'], 'AND');
@@ -352,7 +355,7 @@ class UserController
         $builder->addNaturalJoin('Logements');
 
         if(@strlen($_POST['departement']) > 0) {
-             $builder->addWhere('idDepartement', '=', $_POST['departement']);
+             $builder->addWhere('departementAnnonce', '=', $_POST['departement']);
          }
         if(@strlen($_POST['search']) > 1 && @strlen($_POST['departement']) > 0) {
             $builder->addWhere('titleAnnonce', '=', $_POST['search'], 'AND');
@@ -395,7 +398,7 @@ class UserController
         $builder->addNaturalJoin('Organisations');        
 
         if(@strlen($_POST['departement']) > 0) {
-             $builder->addWhere('idDepartement', '=', $_POST['departement']);
+             $builder->addWhere('departementAnnonce', '=', $_POST['departement']);
          }
         if(@strlen($_POST['search']) > 1 && @strlen($_POST['departement']) > 0) {
             $builder->addWhere('titleAnnonce', '=', $_POST['search'], 'AND');
@@ -445,7 +448,86 @@ class UserController
     }
 
     public function showForgotPassword(){
-        return include('../app/views/forgot_password.php');
+        return include('../app/views/forgot_form.php');
+    }
+
+    public function activeAccount(){
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere("tokenUser", "=", $GLOBALS['url']['param']['token']);
+        $user = $builder->findOne();
+
+        if(count($user) > 0){
+            $builder = new RequestBuilder();
+            $builder->setTable('Users');
+            $builder->addWhere("tokenUser", "=", $GLOBALS['url']['param']['token']);
+            $builder->addValue("isConfirmedUser", "1");
+            $builder->update();
+
+            $GLOBALS['view']['notif']['activateAccount'] = 1;
+            return include('../app/views/login.php');
+        }
+        else{
+            $GLOBALS['view']['notif']['errorAccount'] = "Une erreur est surevenue. Merci de réessayer";
+            return include('../app/views/login.php');
+        }
+    }
+
+    public function showResetPassword(){
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere("tokenUser", "=", $GLOBALS['url']['param']['token']);
+        $user = $builder->findOne();
+
+        if(count($user) > 0){
+            $GLOBALS['view']['user']['idUser'] = $user['idUser'];
+            return include('../app/views/forgot_password.php');
+        }
+        else{
+            $GLOBALS['view']['notif']['errorAccount'] = "Une erreur est surevenue. Merci de réessayer";
+            return include('../app/views/login.php');
+        }
+    }
+
+    public function postResetPassword(){
+        if($_POST['pass1'] == $_POST['pass2']){
+            $password = UserManager::hashMdp($_POST['pass1']);
+            $builder = new RequestBuilder();
+            $builder->setTable('Users');
+            $builder->addWhere("idUser", "=", $_POST['id']);
+            $builder->addValue("passwordUser",$password);
+            $builder->update();
+
+            $GLOBALS['view']['notif']['success'] = "Votre mot de passe a été réinitialisé avec succès !";
+            return include('../app/views/login.php');
+        }
+        else{
+            $GLOBALS['view']['notif']['error'] = "Veuillez saisir deux mots de passe identiques.";
+            Ftools::redirection('forgot-password/'.$_POST['token']);
+        }
+    }
+
+    public function postEmailPassword(){
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere("emailUser", "=", $_POST['email']);
+        $user = $builder->findOne();
+
+        if(@isset($user['tokenUser'])){
+            $url = "/forgot-password/".$user['tokenUser'];
+            $mj = new Mailjet( "dad6c1caa7196ea7e0fafb4bdf592553", "b50b8cb928b1c2d68659e74597196d7c" );
+            $params = array(
+                "method" => "POST",
+                "from" => "contact@untoitpartage.fr",
+                "to" => $_POST['email'],
+                "subject" => "Réinitialisation de votre mot de passe",
+                "text" => "Pour réinitialiser votre mot de passe veuillez vous rendre à l'adresse suivante : "
+            );
+            $result = $mj->sendEmail($params);
+        }
+
+        //$GLOBALS['view']['notif']['success'] = "Un email vous a été envoyé pour réinitialiser votre mot de passe";
+        //return include('../app/views/login.php');
     }
     
 }

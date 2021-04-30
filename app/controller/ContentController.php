@@ -27,7 +27,7 @@ class ContentController
             ));
             $builder->create();
         }
-        Ftools::redirection('/article/list');
+        Ftools::redirection('/articles/list');
     }
     public function postService(){
     if(
@@ -40,6 +40,7 @@ class ContentController
         $builder->setTable('Services');
         $builder->addValues(array(
             "contentService" => $_POST['content'],
+            "cityService" => $_POST['city'],
             "coverService" => $filename
         ));
         $builder->create();
