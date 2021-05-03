@@ -51,17 +51,32 @@ class UserController
                 if(!$uppercase || !$lowercase || !$number || !$special || strlen($password) < 8) {
                     return require('../app/views/signup.php');
                 }else{
-                    $builder = new RequestBuilder();
-                    $builder->setTable('Users');
-                    $builder->addValues(array(
-                        "emailUser" => $_POST['email'],
-                        "firstNameUser" => $_POST['prenom'],
-                        "passwordUser" => $password,
-                        "tokenUser" => $token
-                    ));
-                    $builder->create();
-                    $GLOBALS['view']['notif']['signup'] = 1;
-                    $this->login();
+                    $contentEmail = "Bonjour ".$_POST['prenom'].
+                        ",<br><br>Merci pour votre inscription sur notre plateforme. Pour confirmer votre incription merci de cliquer sur le lien suivant : <br>https://colocation-senior.delia-solutions.com/activate-account/".
+                        $token.
+                        "<br>Vous pourrez ensuite vous connecter avec les identifiants renseignées<br><br>Toute l'équipe de untoitpartage.fr vous souhaite une excellente expérience sur colocationseniors.fr";
+                    $emailSent = Ftools::sendEmail(
+                        $_POST['email'],
+                        'Confirmation email colocationseniors.fr',
+                        $contentEmail
+                    );
+                    if($emailSent){
+                        $builder = new RequestBuilder();
+                        $builder->setTable('Users');
+                        $builder->addValues(array(
+                            "emailUser" => $_POST['email'],
+                            "firstNameUser" => $_POST['prenom'],
+                            "passwordUser" => $password,
+                            "tokenUser" => $token
+                        ));
+                        $builder->create();
+                        $GLOBALS['view']['notif']['signup'] = 1;
+                        $this->login();
+                    }
+                    else{
+                        $GLOBALS['view']['notif']['failed'] = 1;
+                        $this->signup();
+                    }
                 }
 
                
@@ -132,6 +147,12 @@ class UserController
         return include('../app/views/profil_secu.php');
     }
     public function showProfile(){
+        if(@isset($_GET['organisation'])){
+            include('../app/controller/OrganisationController.php');
+            $OrgaController = new OrganisationController();
+            $OrgaController->assignOrganisation();
+        }
+
         $idUser = $GLOBALS['url']['param']['idUser'];
         $builder = new RequestBuilder();
         $builder->setTable('Users');
@@ -158,6 +179,18 @@ class UserController
             if($testFriend['acceptedFriend'] == 0) $GLOBALS['view']['addFriend'] = "Accepter";
             else $GLOBALS['view']['addFriend'] = "Ami";
         }
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Organisations');
+        $builder->addWhere("idUser", "=", $GLOBALS['view']['user']['idUser']);
+        $organisation = $builder->findOne();
+
+        if(empty($organisation)) $GLOBALS['view']['organisation'] = false;
+        else $GLOBALS['view']['organisation'] = $organisation;
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Organisations');
+        $GLOBALS['view']['organisation']['listing'] = $builder->find();
 
         return include('../app/views/profil_show.php');
     }
@@ -464,7 +497,7 @@ class UserController
             $builder->addValue("isConfirmedUser", "1");
             $builder->update();
 
-            $GLOBALS['view']['notif']['activateAccount'] = 1;
+            $GLOBALS['view']['notif']['activateAccount'] = 2;
             return include('../app/views/login.php');
         }
         else{
@@ -508,24 +541,45 @@ class UserController
     }
 
     public function postEmailPassword(){
+        if(@isset($_POST['email'])){
+            $builder = new RequestBuilder();
+            $builder->setTable('Users');
+            $builder->addWhere("emailuser", "=", $_POST['email']);
+            $user = $builder->findOne();
+
+            if(count($user)>0){
+                $token = Ftools::randomString();
+                $builder = new RequestBuilder();
+                $builder->setTable('Users');
+                $builder->addWhere("idUser", "=", $user['idUser']);
+                $builder->addValue("tokenUser", $token);
+                $builder->update();
+
+                $sentEmail = Ftools::sendEmail($user['emailUser'],
+                    "Réinitialisation mot de passe - colocationseniors.fr",
+                    "Bonjour ".
+                    $user['firstNameUser'].
+                    ",<br><br> Pour réinitialiser votre mot de passe, cliquez sur le lien suivant :<br> https://colocation-senior.delia-solutions.com/forgot-password/".
+                    $token.
+                    "<br><br>Vous pourrez ensuite choisir un nouveau mot de passe."
+                );
+                if($sentEmail){
+                    $GLOBALS['view']['notif']['success'] = "Un email a été envoyé à l'adresse indiquée.";
+                    return include('../app/views/forgot_form.php');
+                } else {
+                    $GLOBALS['view']['notif']['error'] = "Une erreur est survenue.";
+                    return include('../app/views/forgot_form.php');
+                }
+            } else {
+                $GLOBALS['view']['notif']['error'] = "Cette adresse email ne correspond à aucun compte.";
+                return include('../app/views/forgot_form.php');
+            }
+        } else {
+            $GLOBALS['view']['notif']['error'] = "Veuillez renseigner une adresse email";
+            return include('../app/views/forgot_form.php');
+        }
         $builder = new RequestBuilder();
         $builder->setTable('Users');
-        $builder->addWhere("emailUser", "=", $_POST['email']);
-        $user = $builder->findOne();
-
-        if(@isset($user['tokenUser'])){
-            $url = "/forgot-password/".$user['tokenUser'];
-            $mj = new Mailjet( "dad6c1caa7196ea7e0fafb4bdf592553", "b50b8cb928b1c2d68659e74597196d7c" );
-            $params = array(
-                "method" => "POST",
-                "from" => "contact@untoitpartage.fr",
-                "to" => $_POST['email'],
-                "subject" => "Réinitialisation de votre mot de passe",
-                "text" => "Pour réinitialiser votre mot de passe veuillez vous rendre à l'adresse suivante : "
-            );
-            $result = $mj->sendEmail($params);
-        }
-
         //$GLOBALS['view']['notif']['success'] = "Un email vous a été envoyé pour réinitialiser votre mot de passe";
         //return include('../app/views/login.php');
     }

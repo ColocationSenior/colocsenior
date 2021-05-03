@@ -418,6 +418,56 @@
       }
     },
     {
+      "route": "/organisation/create",
+      "title": "Créer organisation",
+      "controller": "OrganisationController",
+      "method": "ShowOrganisationForm",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/organisation/post",
+      "title": "Organisation",
+      "controller": "OrganisationController",
+      "method": "postOrganisation",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 2,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/organisation/assign",
+      "title": "Organisation",
+      "controller": "OrganisationController",
+      "method": "assignOrganisation",
+      "request": "POST",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 2,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
       "route": "/logement/create",
       "title": "Organisation",
       "controller": "ContentController",

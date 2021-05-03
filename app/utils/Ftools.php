@@ -73,4 +73,20 @@ class Ftools
         $request = "SELECT * FROM departement";
         return SPDO::getInstance()->getPDO()->query($request)->fetchAll();
     }
+    public static function sendEmail($to, $subject, $content, $from = "contact@untoitpartage.fr"){
+        $mj = new Mailjet( "dad6c1caa7196ea7e0fafb4bdf592553", "b50b8cb928b1c2d68659e74597196d7c" );
+        $params = array(
+            "method" => "POST",
+            "from" => $from,
+            "to" => $to,
+            "subject" => $subject,
+            "text" => $content
+        );
+        $mj->sendEmail($params);
+
+        if ($mj->_response_code == 200)
+            return true;
+        else
+            return false;
+    }
 }

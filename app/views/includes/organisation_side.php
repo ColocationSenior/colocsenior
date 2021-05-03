@@ -3,7 +3,7 @@
         <!-- User Information -->
         <section class="text-center g-mb-30 g-mb-50--md">
             <div class="d-inline-block g-pos-rel g-mb-20">
-                <img class="img-fluid rounded-circle g-width-150" src="/files/profile/<?=$GLOBALS['view']['organisation']['pictureOrganisation']?>" alt="Image description">
+                <img class="img-fluid rounded-circle g-width-150" src="/files/pictures/<?=$GLOBALS['view']['organisation']['pictureOrganisation']?>" alt="Image description">
             </div>
 
             <h3 class="g-font-weight-300 g-font-size-20 g-color-black mb-0 "><?=$GLOBALS['view']['organisation']['nameOrganisation']?></h3><br>

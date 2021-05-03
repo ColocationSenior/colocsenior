@@ -37,6 +37,11 @@
 					<span class="login100-form-title">
 						Pour réinitialiser votre mot de passe, merci de saisir votre adresse email
 					</span>
+                <?php if(@isset($GLOBALS['view']['notif']['error'])){?>
+                <span style="color:red"><?=$GLOBALS['view']['notif']['error']?></span>
+                <?php } elseif(@isset($GLOBALS['view']['notif']['success'])){?>
+                <span style="color:green"><?=$GLOBALS['view']['notif']['success']?></span>
+                <?php } ?>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                     <input class="input100" type="email" name="email" placeholder="Votre email">

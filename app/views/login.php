@@ -125,7 +125,7 @@
         )
     </script>
 <?php } ?>
-<?php if(@$GLOBALS['view']['notif']['activateAccount'] == 1){ ?>
+<?php if(@$GLOBALS['view']['notif']['activateAccount'] == 2){ ?>
     <script>
         Swal.fire(
             'Adresse email vérifiée !',
@@ -134,7 +134,7 @@
         )
     </script>
 <?php } ?>
-<?php if(@$GLOBALS['view']['notif']['activateAccount'] == 0){ ?>
+<?php if(@$GLOBALS['view']['notif']['activateAccount'] == 1){ ?>
     <script>
         Swal.fire(
             'Veuillez vérifier votre adresse email',
