@@ -13,13 +13,13 @@ include('includes/header.php') ?>
             </div>
         </div>-->
         <div style="text-align:center;">
-            <h1 class="g-font-weight-500 g-font-size-30 g-color-darkblue mb-0">Bienvenu sur VOTRE fil dactualité</h1><br>
+            <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Bienvenu sur VOTRE fil dactualité</h1><br>
             <p style="font-weight:bold;">Retrouvez en avant première annonces de services et logements, les nouveaux inscrits ou encore les dernières actualités du site colocationsenior. </p>
         </div>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-500 g-font-size-30 g-color-darkblue mb-0">Les dernières annonces</h1>
+                <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Les dernières annonces</h1>
             </div>
         </div>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">
@@ -92,7 +92,7 @@ include('includes/header.php') ?>
         <hr class="d-flex  g-my-20" style="border: 1px solid #375D81;border-radius: 2px;">
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-500 g-font-size-30 g-color-darkblue mb-0">Découvrez de nouvelles personnes</h1>
+                <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Découvrez de nouvelles personnes</h1>
             </div>
         </div>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">
@@ -134,7 +134,7 @@ include('includes/header.php') ?>
         <hr class="d-flex  g-my-20" style="border: 1px solid #375D81;border-radius: 2px;">
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-500 g-font-size-30 g-color-darkblue mb-0">Les derniers articles</h1>
+                <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Les derniers articles</h1>
             </div>
         </div>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">

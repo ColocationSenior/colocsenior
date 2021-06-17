@@ -361,7 +361,7 @@
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-zoom-in"></i>
                                 </span>
-                                <span class="media-body align-self-center">Support</span>
+                                <span class="media-body align-self-center">Aide</span>
                             </a>
                         </li>
                     </ul>
@@ -369,14 +369,39 @@
                 <!-- End Annonces -->
 
                 <!-- Blog -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--top-level-menu-item">
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="http://untoitpartage.fr/adherer" target="_blank">
+                       href="#" data-hssm-target="#subMenu6">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
-                            <i class="hs-admin-rocket"></i>
+                            <i class="hs-admin-themify-favicon"></i>
                         </span>
-                        <span class="media-body align-self-center">Être adhérent</span>
+                        <span class="media-body align-self-center">Devenir adhérent</span>
+                        <span class="d-flex align-self-center u-side-nav--control-icon">
+                          <i class="hs-admin-angle-right"></i>
+                        </span>
+                        <span class="u-side-nav--has-sub-menu__indicator"></span>
                     </a>
+
+                    <ul id="subMenu6" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0">
+                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
+                               href="https://untoitpartage.fr/maison/agir-et-accompagner/adherer-membre-usager/">
+                                <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                    <i class="hs-admin-user"></i>
+                                </span>
+                                <span class="media-body align-self-center">Membre usager</span>
+                            </a>
+                        </li>
+                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
+                               href="https://untoitpartage.fr/maison/agir-et-accompagner/adherer-membre-usager-senior/">
+                                <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+                                    <i class="hs-admin-zoom-in"></i>
+                                </span>
+                                <span class="media-body align-self-center">Membre usager sénior</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <!-- End blog -->
 
