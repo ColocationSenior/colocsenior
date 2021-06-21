@@ -89,7 +89,7 @@ include('includes/header.php') ?>
         <div class="row">
             <?php foreach($GLOBALS['view']['annonces'] as $annonce){ ?>
             <div class="col-xl-3 col-md-6 g-mb-30">
-                <div class="card g-brd-gray-light-v7 rounded">
+                <div class="card g-brd-gray-light-v7 rounded" style="border-width:4px">
                     <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
                         <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15">
                             <?php if(strlen($annonce['titleAnnonce']) > 43) {

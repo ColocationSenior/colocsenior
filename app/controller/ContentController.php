@@ -56,6 +56,10 @@ class ContentController
         $builder->addWhere('idUser', '=', $_SESSION['user']['idUser']);
         $organisation = $builder->findOne();
 
+        if(@strlen($_POST['departement']) >= 1){
+            $depart = $_POST['departement'];
+        }else $depart = $organisation['departementOrganisation'];
+
         $builder = new RequestBuilder();
         $builder->setTable('Annonces');
         $builder->addValues(array(
@@ -63,7 +67,7 @@ class ContentController
             "coverAnnonce" => $filename,
             "cityAnnonce" => $_POST['city'],
             "idOrganisation" => $organisation['idOrganisation'],
-            "departementAnnonce" => $organisation['departementOrganisation'],
+            "departementAnnonce" => $depart,
             'idService' => $lastId
         ));
         $builder->create();
@@ -102,6 +106,10 @@ class ContentController
             $builder->addWhere('idUser', '=', $_SESSION['user']['idUser']);
             $organisation = $builder->findOne();
 
+            if(@strlen($_POST['departement']) >= 1){
+                $depart = $_POST['departement'];
+            }else $depart = $organisation['departementOrganisation'];
+
             $builder = new RequestBuilder();
             $builder->setTable('Annonces');
             $builder->addValues(array(
@@ -109,7 +117,7 @@ class ContentController
                 "coverAnnonce" => $one,
                 "cityAnnonce" => $_POST['city'],
                 "idOrganisation" => $organisation['idOrganisation'],
-                "departementAnnonce" => $organisation['departementOrganisation'],
+                "departementAnnonce" => $depart,
                 'idLogement' => $lastId
             ));
             $builder->create();
@@ -154,6 +162,7 @@ class ContentController
         }
     }
     public function showLogementForm(){
+        $GLOBALS['view']['departements'] = Ftools::getDepartementList();
         return include('../app/views/annonce_form.php');
     }
 }

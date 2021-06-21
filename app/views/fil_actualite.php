@@ -26,7 +26,7 @@ include('includes/header.php') ?>
         <div class="row">
             <?php foreach($GLOBALS['view']['annonces'] as $annonce){ ?>
             <div class="col-xl-3 col-md-6 g-mb-30">
-                <div class="card g-brd-gray-light-v7 rounded">
+                <div class="card g-brd-gray-light-v7 rounded" style="border-width:4px">
                     <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
                         <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15">
                           <?php if(strlen($annonce['titleAnnonce']) > 43) {
@@ -100,7 +100,7 @@ include('includes/header.php') ?>
         <?php foreach($GLOBALS['view']['users'] as $user){ ?>
             <!-- User Card -->
             <div class="col-xl-3 col-md-6">
-                <div class="card card-profil g-brd-gray-light-v7 text-center g-pt-40 g-pt-60--md g-mb-30">
+                <div class="card card-profil g-brd-gray-light-v7 text-center g-pt-40 g-pt-60--md g-mb-30" style="border-width:4px">
                     <a href="/profil/show/<?=$user['idUser']?>">
                         <header class="g-mb-30">
                             <img class="img-fluid rounded-circle g-width-125 g-height-125 g-mb-14" src="/files/profile/<?=$user['pictureUser']?>" alt="Image description">
@@ -141,7 +141,7 @@ include('includes/header.php') ?>
         <div class="row">
             <?php foreach($GLOBALS['view']['news'] as $new){ ?>
             <div class="col-xl-3 col-md-6 g-mb-30">
-                <div class="card g-brd-gray-light-v7 rounded">
+                <div class="card g-brd-gray-light-v7 rounded" style="border-width:4px">
                     <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
                         <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15"><?=$new['titleNew']?></h3>
                     </header>
