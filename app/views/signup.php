@@ -20,6 +20,9 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
     <!--===============================================================================================-->
+    <link rel="stylesheet" href="/assets/css/unify-core.css">
+    <link rel="stylesheet" href="/assets/css/unify-components.css">
+    <link rel="stylesheet" href="/assets/css/unify-globals.css">
 </head>
 <body>
 
@@ -39,7 +42,7 @@
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Un email valide est requis: ex@abc.xyz">
-                    <input class="input100" type="email" name="email" placeholder="Email">
+                    <input class="input100" type="email" name="email" placeholder="Email" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -47,7 +50,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Un prénom est requis">
-                    <input class="input100" type="text" name="prenom" required placeholder="Prénom">
+                    <input class="input100" type="text" name="prenom" required placeholder="Prénom" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -55,7 +58,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Un mot de passe est requis">
-                    <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe">
+                    <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -63,11 +66,28 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Un mot de passe est requis">
-                    <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe">
+                    <input class="input100" id="password-field" type="password" name="password" placeholder="Mot de passe" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Un mot de passe est requis">
+                    <input class="input100" id="password-field" type="text" name="ville" placeholder="Votre ville" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-location-arrow" aria-hidden="true"></i>
+						</span>
+                </div>
+
+                <div class="form-group g-mb-20">
+                    <select name="departement" class="js-custom-select u-select-v1 g-brd-gray-light-v3 g-color-gray-dark-v5 rounded g-py-12" style="width: 100%;" data-placeholder="Gender" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                        <option value="0">Votre département</option>
+                        <?php foreach($GLOBALS['depart'] as $departement){ ?>
+                        <option value="<?=$departement['nomDepartement']?>"><?=$departement['nomDepartement']?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="container-login100-form-btn">

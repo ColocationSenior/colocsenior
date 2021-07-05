@@ -34,7 +34,7 @@
                           <span class="g-font-size-18 g-color-gray-light-v6 g-color-primary--parent-hover g-color-primary--parent-active g-mr-15">
 						<i class="hs-admin-lock"></i>
 					</span>
-                        <span class="g-color-gray-dark-v6 g-color-primary--parent-hover g-color-primary--parent-active">Sécurité</span>
+                        <span class="g-color-gray-dark-v6 g-color-primary--parent-hover g-color-primary--parent-active">Modifier mot de passe</span>
                     </a>
                 </li>
             </ul>

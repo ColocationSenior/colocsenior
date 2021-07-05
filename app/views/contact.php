@@ -19,6 +19,14 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/util_contact.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/contact.css">
 	<!--===============================================================================================-->
+    <style>
+        .contact1{
+            background: #ffb900;
+        }
+        .contact1-form-btn{
+            background: #005E00;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,21 +39,11 @@
 
 			<form class="contact1-form validate-form" id="contact-form" action="/contact/post" method="post">
 				<span class="contact1-form-title">
-					Envoyez un message
+					Envoyez un message à notre support
 				</span>
 
-				<div class="wrap-input1 validate-input" data-validate="Name is required">
-					<input class="input1" type="text" name="Nom" placeholder="Name">
-					<span class="shadow-input1"></span>
-				</div>
-
-				<div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyzcontact">
-					<input class="input1" type="text" name="email" placeholder="Email">
-					<span class="shadow-input1"></span>
-				</div>
-
 				<div class="wrap-input1 validate-input" data-validate="Subject is required">
-					<input class="input1" type="text" name="Sujet" placeholder="Subject">
+					<input class="input1" type="text" name="sujet" placeholder="Sujet">
 					<span class="shadow-input1"></span>
 				</div>
 
@@ -91,8 +89,8 @@
 
 	<?php
 	if (@isset($isPost) ){
-	if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
-		if(@isset($_POST['name']) && @isset($_POST['email']) && @isset($_POST['subject']) && @isset($_POST['message'])){ ?>
+	if (!empty($_POST['sujet']) && !empty($_POST['message'])){
+		if(@isset($_POST['sujet']) && @isset($_POST['message'])){ ?>
 			<script>
 				Swal.fire(
 					'Merci !',

@@ -2,7 +2,6 @@
 $GLOBALS['view']['title'] = "Fil d'actualité";
 include('includes/header.php') ?>
 <style>
-
 </style>
 
 <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
@@ -13,7 +12,7 @@ include('includes/header.php') ?>
             </div>
         </div>-->
         <div style="text-align:center;">
-            <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Bienvenu sur VOTRE fil dactualité</h1><br>
+            <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Bienvenu sur votre fil dactualité</h1><br>
             <p style="font-weight:bold;">Retrouvez en avant première annonces de services et logements, les nouveaux inscrits ou encore les dernières actualités du site colocationsenior. </p>
         </div>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">
@@ -25,9 +24,9 @@ include('includes/header.php') ?>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">
         <div class="row">
             <?php foreach($GLOBALS['view']['annonces'] as $annonce){ ?>
-            <div class="col-xl-3 col-md-6 g-mb-30">
-                <div class="card g-brd-gray-light-v7 rounded" style="border-width:4px">
-                    <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
+            <div class="col-xl-3 col-md-6 change-hover g-mb-30">
+                <div class="card g-brd-gray-light-v7 change-hover rounded" style="border-width:4px">
+                    <header class="card-header g-bg-transparent change-hover g-brd-bottom-none g-pa-20 g-pa-30--sm">
                         <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15">
                           <?php if(strlen($annonce['titleAnnonce']) > 43) {
                               echo substr($annonce['titleAnnonce'] ,0,44) . ". . .";
@@ -66,7 +65,7 @@ include('includes/header.php') ?>
                     </section>
                     <hr class="d-flex g-brd-gray-light-v7 my-0">
                     <div>
-                        <a class="d-flex align-items-center u-link-v5 g-parent g-py-15" style="display:flex;justify-content:center;" href="/annonce/show/<?=$annonce['idAnnonce']?>">
+                        <a class="d-flex align-items-center change-hover u-link-v5 g-parent g-py-15" style="display:flex;justify-content:center;" href="/annonce/show/<?=$annonce['idAnnonce']?>">
                             <span class="g-font-size-18 g-color-gray-light-v6 g-color-primary--parent-hover g-color-primary--parent-active g-mr-5">
                                 <i class="hs-admin-arrow-circle-right"></i>
                             </span>

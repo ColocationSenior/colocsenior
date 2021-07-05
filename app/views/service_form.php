@@ -51,7 +51,6 @@ include('includes/header.php') ?>
                                         <i class="hs-admin-check g-absolute-centered g-font-size-default g-color-secondary"></i>
                                     </span>
                                         <select class="js-select u-select--v1-select w-100" name="departement" style="display: none;">
-                                            <option value="">Tous</option>
                                             <?php foreach($GLOBALS['view']['departements'] as $departement){ ?>
                                                 <option value="<?=$departement['nomDepartement']?>"><?=$departement['codeDepartement']?> - <?=$departement['nomDepartement']?></option>
                                             <?php } ?>

@@ -48,6 +48,11 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="/assets/css/custom.css">
+    <style>
+        .change-hover:hover{
+            color: #e6215;
+        }
+    </style>
 </head>
 
 <body>

@@ -32,6 +32,8 @@ class UserController
         if(
             @isset($_POST['email']) &&
             @isset($_POST['prenom']) &&
+            @isset($_POST['departement']) &&
+            @isset($_POST['ville']) &&
             @isset($_POST['password'])
         ){
             $builder = new RequestBuilder();
@@ -66,6 +68,8 @@ class UserController
                         $builder->addValues(array(
                             "emailUser" => $_POST['email'],
                             "firstNameUser" => $_POST['prenom'],
+                            "cityUser" => $_POST['ville'],
+                            "departementUser" => $_POST['departement'],
                             "passwordUser" => $password,
                             "tokenUser" => $token
                         ));
@@ -345,23 +349,30 @@ class UserController
     public function contactPost(){
 
         $isPost = false; 
-        if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])){
+        if (!empty($_POST['sujet']) && !empty($_POST['message'])){
             $builder = new RequestBuilder();
             $builder->setTable('Contacts');            
             $builder->addValues(array(
-                'nameContact' => $_POST['name'],
-                'emailContact' => $_POST['email'],
-                'subjectContact' => $_POST['subject'],
+                'nameContact' => $_SESSION['user']['firstNameUser']." ".$_SESSION['user']['lastNameUser'],
+                'emailContact' => $_SESSION['user']['emailUser'],
+                'subjectContact' => $_POST['sujet'],
                 'contentContact' => $_POST['message']                
             ));
             if(@isset($_SESSION['user']['idUser'])) $builder->addValue('idUser',$_SESSION['user']['idUser']);
             $builder->create();
-                       
+
+            $contentEmail = "Envoyé par : ".$_SESSION['user']['firstNameUser']." ".$_SESSION['user']['lastNameUser']." - ".$_SESSION['user']['emailUser']."<br>Sujet : ".$_POST['sujet']."<br>".$_POST['message'];
+            $emailSent = Ftools::sendEmail(
+                "nicolas.lespinasse@gmail.com",
+                $_POST['sujet'],
+                $contentEmail
+            );
         }
 
         include('../app/views/contact.php');
     }
     public function createService(){
+        $GLOBALS['view']['departements'] = Ftools::getDepartementList();
         return include('../app/views/service_form.php');
     }
     public function listLogements(){
