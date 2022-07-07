@@ -12,7 +12,7 @@ include('includes/header.php') ?>
             </div>
         </div>-->
         <div style="text-align:center;">
-            <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Bienvenu sur votre fil dactualité</h1><br>
+            <h1 class="g-font-weight-500 g-font-size-30 mb-0" style="color:#21AD67">Bienvenue sur votre fil d'actualité</h1><br>
             <p style="font-weight:bold;">Retrouvez en avant première annonces de services et logements, les nouveaux inscrits ou encore les dernières actualités du site colocationsenior. </p>
         </div>
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">

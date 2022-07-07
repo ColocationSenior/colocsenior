@@ -27,7 +27,104 @@ class MainController
         return include('../app/views/fil_actualite.php');
     }
     public function showChat(){
-        return include('../app/views/messages.php');
+        $builder = new RequestBuilder();
+        $builder->setTable('Conversations');
+        $builder->addOrderBy('lastUpdateConversation', false);
+        $conversation = $builder->find();
+
+        foreach ($conversation as $conv){
+            if($conv['idUser1'] == $_SESSION['user']['idUser']){
+                $builder = new RequestBuilder();
+                $builder->setTable('Users');
+                $builder->addWhere("idUser", "=", $conv['idUser2']);
+                $userConv = $builder->findOne();
+            } else{
+                $builder = new RequestBuilder();
+                $builder->setTable('Users');
+                $builder->addWhere("idUser", "=", $conv['idUser1']);
+                $userConv = $builder->findOne();
+            }
+            $builder = new RequestBuilder();
+            $builder->setTable('Messages');
+            $builder->addWhere("idConversation", "=", $conv['idConversation']);
+            $builder->addOrderBy("idMessage",false);
+            $builder->addLimit(0, 1);
+            $lastMsg = $builder->findOne();
+
+            $userName = $userConv['firstNameUser']." ".$userConv['lastNameUser'];
+            $userPic = $userConv['pictureUser'];
+            $lastMessage = $lastMsg['contentMessage'];
+            $dateMessage = $lastMsg['heureMessage']."H".$lastMsg['minutesMessage']." ".$lastMsg['jourMessage']."/".$lastMsg['moisMessage']."/".$lastMsg['anneeMessage'];
+
+            $GLOBALS['view']['conversations'][] = array(
+                "idConversation" => $conv['idConversation'],
+                "userName" => $userName,
+                "userPic" => $userPic,
+                "lastMessage" => $lastMessage,
+                "dateMessage" => $dateMessage,
+            );
+        }
+
+        return include('../app/views/chat.php');
+    }
+    public function createConversation(){
+        $idUser = $GLOBALS['url']['param']['idUser'];
+        $builder = new RequestBuilder();
+        $builder->setTable('Conversations');
+        $builder->addValue("idUser2", $idUser);
+        $builder->addValue("idUser1", $_SESSION['user']['idUser']);
+        $builder->create();
+
+        $this->showChat();
+    }
+    public function getConversation(){
+        $idConversation = $GLOBALS['url']['param']['idConversation'];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Messages');
+        $builder->addWhere("idConversation", "=", $idConversation);
+        $builder->addOrderBy("idMessage",false);
+        $builder->addLimit(0, 20);
+        $GLOBALS['view']['messages'] = $builder->find();
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Conversations');
+        $builder->addWhere("idConversation", "=", $idConversation);
+        $currentConv = $builder->findOne();
+
+        if($currentConv['idUser1'] == $_SESSION['user']['idUser']) $idUser = $currentConv['idUser2'];
+        else $idUser = $currentConv['idUser1'];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere("idUser", "=", $idUser);
+        $user = $builder->findOne();
+        $GLOBALS['view']['usersConversation']['from'] = $user["pictureUser"];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Users');
+        $builder->addWhere("idUser", "=", $_SESSION['user']['idUser']);
+        $user = $builder->findOne();
+        $GLOBALS['view']['usersConversation']['to'] = $user["pictureUser"];
+
+        return include('../app/views/returnConversation.php');
+    }
+    public function postConversation(){
+        $idConversation = $GLOBALS['url']['param']['idConversation'];
+
+        $builder = new RequestBuilder();
+        $builder->setTable('Messages');
+        $builder->addValue("contentMessage", $_POST['content']);
+        $builder->addValue("jourMessage", date('d'));
+        $builder->addValue("moisMessage", date('m'));
+        $builder->addValue("anneeMessage", date('Y'));
+        $builder->addValue("heureMessage", date('h'));
+        $builder->addValue("minutesMessage", date('i'));
+        $builder->addValue("fromMessage", $_SESSION['user']['idUser']);
+        $builder->addValue("idConversation", $idConversation);
+        $builder->create();
+
+        $this->getConversation();
     }
     public function showContact(){
         $builder = new RequestBuilder();

@@ -318,7 +318,7 @@
                 <!-- Messagerie -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#" onclick="wip()">
+                       href="/chat/show">
                         <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
                             <i class="hs-admin-comment-alt"></i>
                         </span>
@@ -390,7 +390,7 @@
                     <ul id="subMenu6" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0">
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="https://untoitpartage.fr/maison/agir-et-accompagner/adherer-membre-usager/">
+                               href="https://untoitpartage.fr/maison/agir-et-accompagner/adherer-membre-usager/" target="_blank">
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-user"></i>
                                 </span>
@@ -399,7 +399,7 @@
                         </li>
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="https://untoitpartage.fr/maison/agir-et-accompagner/adherer-membre-usager-senior/">
+                               href="https://untoitpartage.fr/maison/agir-et-accompagner/adherer-membre-usager-senior/" target="_blank">
                                 <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
                                     <i class="hs-admin-zoom-in"></i>
                                 </span>

@@ -605,10 +605,59 @@
       }
     },
     {
-      "route": "/messages/show",
-      "title": "Messages",
+      "route": "/chat/show",
+      "title": "Chat",
       "controller": "MainController",
       "method": "showChat",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/chat/get/{idConversation}",
+      "title": "Chat",
+      "controller": "MainController",
+      "method": "getConversation",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/chat/create/{idUser}",
+      "title": "Chat",
+      "controller": "MainController",
+      "method": "createConversation",
+      "middleware": {
+        "UserManager": [
+          {
+            "attr": "levelUser",
+            "operator": ">=",
+            "value": 1,
+            "error": "/login"
+          }
+        ]
+      }
+    },
+    {
+      "route": "/chat/post/{idConversation}",
+      "title": "Chat",
+      "controller": "MainController",
+      "method": "postConversation",
+      "request": "POST",
       "middleware": {
         "UserManager": [
           {

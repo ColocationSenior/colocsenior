@@ -14,14 +14,14 @@
                 </button>
             </a>
             <?php } ?>
-            <?php if($_SESSION['user']['idUser'] >= 1 ){ ?>
+            <?php if($_SESSION['user']['idUser'] >= 1 || $GLOBALS['view']['user']['levelUser'] <= 8 ){ ?>
             <a href="/profil/upgrade/<?=$GLOBALS['view']['user']['idUser']?>">
                 <button class="btn btn-md btn-xl--md u-btn-primary g-width-160--md g-font-size-12 g-font-size-default--md g-mt-10">
                     <i class="hs-admin-less"></i> Upgrade
                 </button>
             </a>
             <?php } ?>
-            <?php if($_SESSION['user']['idUser'] >= 1 ){ ?>
+            <?php if($_SESSION['user']['idUser'] >= 1  || $GLOBALS['view']['user']['levelUser'] >= 0 ){ ?>
             <a href="/profil/downgrade/<?=$GLOBALS['view']['user']['idUser']?>">
                 <button class="btn btn-md btn-xl--md u-btn-primary g-width-160--md g-font-size-12 g-font-size-default--md g-mt-10">
                     <i class="hs-admin-less"></i> Downgrade
@@ -35,6 +35,11 @@
                 </button>
             </a>
             <?php } ?>
+                <a href="/chat/create/<?=$GLOBALS['view']['user']['idUser']?>">
+                    <button class="btn btn-md btn-xl--md u-btn-secondary g-width-160--md g-font-size-12 g-font-size-default--md g-mt-10">
+                        <i class="hs-admin-less"></i> Contacter
+                    </button>
+                </a>
             <?php if(@$GLOBALS['view']['addFriend'] && $GLOBALS['view']['addFriend'] != 'Accepter'){ ?>
             <span style="color:gray;"><?=@$GLOBALS['view']['addFriend']?></span>
             <?php } ?>
@@ -68,17 +73,26 @@
                         <span class="g-color-gray-dark-v6"><?=@$GLOBALS['view']['user']['cityUser']?></span>
                     </div>
                 </li>
-                <?php if($_SESSION['user']['idUser'] >= 1 ){ ?>
+                <?php if($_SESSION['user']['idUser'] >= 1 ){
+                    if($GLOBALS['view']['user']['levelUser'] == 1) $level = "Normal User";
+                    else if($GLOBALS['view']['user']['levelUser'] == 2) $level = "Usager Junior";
+                    else if($GLOBALS['view']['user']['levelUser'] == 3) $level = "Usager Sénior";
+                    else if($GLOBALS['view']['user']['levelUser'] == 4) $level = "Immobilier partagé";
+                    else if($GLOBALS['view']['user']['levelUser'] == 5) $level = "Usager SAP";
+                    else if($GLOBALS['view']['user']['levelUser'] == 6) $level = "All inclusive";
+                    else if($GLOBALS['view']['user']['levelUser'] == 7) $level = "Référent local";
+                    else if($GLOBALS['view']['user']['levelUser'] == 8) $level = "Super admin";
+                ?>
                 <li class="g-brd-top g-brd-gray-light-v7 mb-0">
                     <div class="d-flex align-items-center u-link-v5 g-parent g-py-15">
                           <span class="g-font-size-18 g-color-gray-light-v6 g-mr-15">
                               <i class="hs-admin-location-pin"></i>
                           </span>
-                        <span class="g-color-gray-dark-v6">Niveau utilisateur :
+                        <span class="g-color-gray-dark-v6">
                         <?php if(@$GLOBALS['view']['user']['levelUser'] == 0){ ?>
                         Banni
                         <?php } else { ?>
-                        <?=@$GLOBALS['view']['user']['levelUser']?>
+                        <?=@$level?>
                         <?php } ?>
                         </span>
                     </div>
